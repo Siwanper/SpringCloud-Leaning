@@ -12,8 +12,17 @@ spring:
           search-paths: 5-spring-cloud-git/config-repo
           username: Siwanper
           password: Shi18740961619
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8000/eureka
 
+management:
+  security:
+     enabled: false
