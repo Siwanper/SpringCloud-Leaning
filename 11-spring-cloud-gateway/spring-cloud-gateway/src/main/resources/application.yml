@@ -1,0 +1,10 @@
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: swp_route
+        uri: http://www.ityouknow.com
+        predicates:
+        - Path=/spring-cloud
+          Path=/spring-boot
