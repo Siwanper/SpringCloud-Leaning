@@ -3,8 +3,51 @@ spring:
   cloud:
     gateway:
       routes:
-      - id: swp_route
+#      - id: swp_route
+#        uri: http://www.ityouknow.com
+#        predicates:
+#        - Path=/spring-cloud
+#      - id: after_route
+#        uri: http://www.ityouknow.com
+#        predicates:
+#        - After=2019-06-20T10:29:12.303+08:00[Asia/Shanghai]
+#      - id: before_route
+#        uri: http://www.ityouknow.com
+#        predicates:
+#        - Before=2019-06-20T10:32:12.303+08:00[Asia/Shanghai]
+#      - id: between_route
+#        uri: http://www.ityouknow.com
+#        predicates:
+#        - Between=2019-06-20T10:32:12.303+08:00[Asia/Shanghai], 2019-06-20T10:42:12.303+08:00[Asia/Shanghai]
+#      - id: cookie_route
+#        uri: http://www.ityouknow.com
+#        predicates:
+#        - Cookie=cookiename, swp
+#      - id: header_route
+#        uri: http://www.ityouknow.com
+#        predicates:
+#        - Header=X-Request-Id, \d+
+#      - id: host_route
+#        uri: http://www.ityouknow.com
+#        predicates:
+#        - Host=*.siwanper.top
+#      - id: method_route
+#        uri: http://www.ityouknow.com
+#        predicates:
+#        - Method=GET
+#      - id: path_route
+#        uri: http://www.ityouknow.com
+#        predicates:
+#        - Path=/mobile/{segment}
+#      - id: query_route
+#        uri: http://www.ityouknow.com
+#        predicates:
+#        - Query=smile, pu.
+
+      - id: multi_route
         uri: http://www.ityouknow.com
         predicates:
-        - Path=/spring-cloud
-          Path=/spring-boot
+        - Path=/archive/{segment}
+        - Query=smile, pu.
+        - Between=2019-06-20T11:32:12.303+08:00[Asia/Shanghai], 2019-06-20T11:42:12.303+08:00[Asia/Shanghai]
+        - Method=GET
