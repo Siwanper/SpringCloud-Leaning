@@ -1,0 +1,26 @@
+server:
+  port: 9000
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: filter_route
+        uri: lb://SPRING.CLOUD.PRODUCER
+        filters:
+        - AddRequestParameter=name, swp
+        predicates:
+        - Method=GET
+  application:
+    name: spring-cloud-gateway-eureka
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
