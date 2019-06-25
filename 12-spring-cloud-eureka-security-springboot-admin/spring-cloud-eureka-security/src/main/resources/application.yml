@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: spring-cloud-eureka
+  security:
+    user:
+      name: siwanper
+      password: 101088
+server:
+  port: 8888
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@localhost:${server.port}/eureka/
