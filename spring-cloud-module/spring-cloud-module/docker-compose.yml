@@ -1,0 +1,12 @@
+version: '3'
+services:
+  registry:
+    restart: always
+    build: ./registry
+    working_dir: /registry
+    volumes:
+      - ./registry:/registry
+      - ~/.m2:/root/.m2
+    expose:
+      - "8888"
+    command: mvn clean install spring-boot:run -Dspring-boot.run.profiles=docker
