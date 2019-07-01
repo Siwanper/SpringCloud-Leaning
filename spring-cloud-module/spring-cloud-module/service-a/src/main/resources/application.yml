@@ -1,10 +1,5 @@
 spring:
   application:
     name: service-a
-
-server:
-  port: 8001
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8888/eureka/
+  profiles:
+    active: dev

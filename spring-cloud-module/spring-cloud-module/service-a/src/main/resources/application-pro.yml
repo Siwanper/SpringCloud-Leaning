@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: service-a
+server:
+  port: 8001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://registry:8080/eureka/

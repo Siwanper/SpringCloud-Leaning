@@ -4,4 +4,18 @@ services:
     image: spring-boot-cloud/registry
     restart: on-failure
     ports:
-      - "8888:8888"
+      - "8080:8080"
+  service-a:
+    image: spring-boot-cloud/service-a
+    restart: on-failure
+    ports:
+      - "8001:8001"
+    depends_on:
+      - registry
+  service-b:
+    image: spring-boot-cloud/service-b
+    restart: on-failure
+    ports:
+      - "8002:8002"
+    depends_on:
+      - registry
