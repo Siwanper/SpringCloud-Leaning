@@ -7,10 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="registry" />
+        <module name="service-a" />
+        <module name="service-b" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="registry" target="1.8" />
+      <module name="service-a" target="1.8" />
+      <module name="service-b" target="1.8" />
       <module name="spring-cloud-module" target="1.8" />
     </bytecodeTargetLevel>
   </component>
