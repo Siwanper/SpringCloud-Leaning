@@ -7,6 +7,7 @@
     <ignored path="$PROJECT_DIR$/registry/target/" />
     <ignored path="$PROJECT_DIR$/service-a/target/" />
     <ignored path="$PROJECT_DIR$/service-b/target/" />
+    <ignored path="$PROJECT_DIR$/config/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +16,75 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="application.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/service-b/src/main/resources/application.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application-dev.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/service-b/src/main/resources/application-dev.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegistryApplication.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/registry/src/main/java/com/swp/registry/RegistryApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="service-b.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config-repo/service-b.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="13" selection-start-column="13" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/service-b/src/main/java/com/swp/serviceb/controller/CustomerController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+              <folding>
+                <element signature="e#725#726#0" expanded="true" />
+                <element signature="e#783#784#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServiceBApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/service-b/src/main/java/com/swp/serviceb/ServiceBApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/service-b/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -36,11 +105,9 @@
         <option value="$PROJECT_DIR$/registry/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/service-a/pom.xml" />
         <option value="$PROJECT_DIR$/service-a/src/main/java/com/swp/servicea/ServiceAApplication.java" />
-        <option value="$PROJECT_DIR$/service-b/pom.xml" />
         <option value="$PROJECT_DIR$/service-b/src/main/java/com/swp/serviceb/ServiceBApplication.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/service-a/src/main/java/com/swp/servicea/controller/ProducerController.java" />
-        <option value="$PROJECT_DIR$/service-b/src/main/java/com/swp/serviceb/controller/CustomerController.java" />
         <option value="$PROJECT_DIR$/service-b/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/service-a/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/service-a/Dockerfile" />
@@ -50,10 +117,17 @@
         <option value="$PROJECT_DIR$/registry/src/main/resources/application-dev.yml" />
         <option value="$PROJECT_DIR$/service-a/src/main/resources/application-dev.yml" />
         <option value="$PROJECT_DIR$/service-a/src/main/resources/application-pro.yml" />
-        <option value="$PROJECT_DIR$/service-b/src/main/resources/application-dev.yml" />
-        <option value="$PROJECT_DIR$/service-b/src/main/resources/application-pro.yml" />
         <option value="$PROJECT_DIR$/service-b/src/main/java/com/swp/serviceb/service/hystrix/ProducerServiceCallBack.java" />
         <option value="$PROJECT_DIR$/service-b/src/main/java/com/swp/serviceb/service/ProducerService.java" />
+        <option value="$PROJECT_DIR$/config/pom.xml" />
+        <option value="$PROJECT_DIR$/config/src/main/java/com/swp/config/ConfigApplication.java" />
+        <option value="$PROJECT_DIR$/config/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/config/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/service-b/src/main/resources/application-pro.yml" />
+        <option value="$PROJECT_DIR$/service-b/pom.xml" />
+        <option value="$PROJECT_DIR$/config-repo/service-b.yml" />
+        <option value="$PROJECT_DIR$/service-b/src/main/java/com/swp/serviceb/controller/CustomerController.java" />
+        <option value="$PROJECT_DIR$/service-b/src/main/resources/application-dev.yml" />
       </list>
     </option>
   </component>
@@ -76,18 +150,20 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
+    <option name="x" value="20" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="827" />
+    <option name="height" value="824" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -98,6 +174,16 @@
             <path>
               <item name="spring-cloud-module" type="b2602c69:ProjectViewProjectNode" />
               <item name="spring-cloud-module" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-cloud-module" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spring-cloud-module" type="462c0819:PsiDirectoryNode" />
+              <item name="config-repo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-cloud-module" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spring-cloud-module" type="462c0819:PsiDirectoryNode" />
               <item name="service-b" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -161,20 +247,7 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="swp" type="462c0819:PsiDirectoryNode" />
               <item name="serviceb" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring-cloud-module" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring-cloud-module" type="462c0819:PsiDirectoryNode" />
-              <item name="service-b" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="swp" type="462c0819:PsiDirectoryNode" />
-              <item name="serviceb" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="hystrix" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spring-cloud-module" type="b2602c69:ProjectViewProjectNode" />
@@ -188,7 +261,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -288,6 +360,10 @@
       </option>
       <patterns />
     </configuration>
+    <configuration name="ConfigApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="config" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.swp.config.ConfigApplication" />
+    </configuration>
     <configuration name="RegistryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="registry" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.swp.registry.RegistryApplication" />
@@ -342,6 +418,7 @@
       <item itemvalue="Application.RegistryApplication" />
       <item itemvalue="Application.ServiceAApplication" />
       <item itemvalue="Application.ServiceBApplication" />
+      <item itemvalue="Spring Boot.ConfigApplication" />
     </list>
     <recent_temporary>
       <list>
@@ -377,19 +454,21 @@
       <workItem from="1561989627607" duration="1716000" />
       <workItem from="1561992569381" duration="224000" />
       <workItem from="1561993140253" duration="125000" />
-      <workItem from="1561994755545" duration="778000" />
+      <workItem from="1561994755545" duration="781000" />
+      <workItem from="1562074121897" duration="3809000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12993000" />
+    <option name="totallyTimeSpent" value="16805000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="827" extended-state="1" />
+    <frame x="20" y="23" width="1440" height="824" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5007153" side_tool="true" weight="0.39088398" />
-      <window_info anchor="right" id="Maven Projects" order="3" visible="true" weight="0.16738197" />
+      <window_info anchor="right" id="Maven Projects" order="3" weight="0.16738197" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -404,12 +483,12 @@
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info active="true" anchor="bottom" id="Run Dashboard" order="9" visible="true" weight="0.47534245" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.22375691" />
+      <window_info active="true" anchor="bottom" id="Run Dashboard" order="9" visible="true" weight="0.54332876" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.22375691" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3018598" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21745351" />
       <window_info anchor="right" id="Bean Validation" order="3" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -467,34 +546,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/registry/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/registry/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="28" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/registry/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -663,24 +714,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service-b/src/main/java/com/swp/serviceb/controller/CustomerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/registry/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service-b/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -740,27 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service-b/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service-b/src/main/resources/application-dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="13" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service-b/src/main/resources/application-pro.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/registry/src/main/resources/application-dev.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -789,13 +805,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/registry/src/main/java/com/swp/registry/RegistryApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service-a/src/main/java/com/swp/servicea/ServiceAApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -807,9 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="17" column="36" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -820,10 +826,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/src/main/java/com/swp/config/ConfigApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="29" column="21" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="29" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-b/src/main/resources/application-pro.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-b/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-repo/service-b.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-b/src/main/java/com/swp/serviceb/controller/CustomerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="e#725#726#0" expanded="true" />
+            <element signature="e#783#784#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/service-b/src/main/java/com/swp/serviceb/ServiceBApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-b/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-b/src/main/resources/application-dev.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/registry/src/main/java/com/swp/registry/RegistryApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>

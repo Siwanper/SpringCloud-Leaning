@@ -2,6 +2,7 @@ package com.swp.serviceb.controller;
 
 import com.swp.serviceb.service.ProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,9 +19,12 @@ public class CustomerController {
     @Autowired
     private ProducerService producerService;
 
+    @Value("${msg}")
+    private String msg;
+
     @RequestMapping("/hello/{name}")
     public String hello(@PathVariable(value = "name") String name){
-        return producerService.hello(name);
+        return msg + " " + producerService.hello(name);
     }
 
 }
