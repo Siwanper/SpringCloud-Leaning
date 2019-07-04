@@ -7,7 +7,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/Siwanper/SpringCloud-Leaning/
+          uri: https://github.com/Siwanper/SpringCloud-Leaning
           search-paths: spring-cloud-module/spring-cloud-module/config-repo
           username: Siwanper
           password: Shi18740961619
