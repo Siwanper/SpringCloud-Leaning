@@ -11,6 +11,10 @@ spring:
           search-paths: spring-cloud-module/spring-cloud-module/config-repo
           username: Siwanper
           password: Shi18740961619
+    bus:
+      enabled: true
+      trace:
+        enabled: true
 
   rabbitmq:
     host: localhost
@@ -22,6 +26,11 @@ eureka:
     service-url:
       defaultZone: http://localhost:8080/eureka/
 management:
-  security:
-    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
 
