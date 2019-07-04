@@ -2,5 +2,9 @@
 spring:
   application:
     name: service-b
+
   profiles:
-    active: dev
+    active: pro
+
+server:
+  port: 8002

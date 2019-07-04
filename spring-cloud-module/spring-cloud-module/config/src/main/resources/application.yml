@@ -1,8 +1,6 @@
 server:
   port: 9001
 spring:
-  application:
-    name: config
   cloud:
     config:
       server:
