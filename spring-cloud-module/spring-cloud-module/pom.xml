@@ -21,6 +21,7 @@
         <module>registry</module>
         <module>service-a</module>
         <module>service-b</module>
+        <module>config</module>
     </modules>
 
     <parent>
