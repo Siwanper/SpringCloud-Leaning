@@ -11,6 +11,7 @@ spring:
           search-paths: spring-cloud-module/spring-cloud-module/config-repo
           username: Siwanper
           password: Shi18740961619
+
     bus:
       enabled: true
       trace:

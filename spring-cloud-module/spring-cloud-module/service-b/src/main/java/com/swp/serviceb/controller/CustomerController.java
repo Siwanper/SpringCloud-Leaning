@@ -3,6 +3,7 @@ package com.swp.serviceb.controller;
 import com.swp.serviceb.service.ProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @outhor ios
  * @create 2019-07-01 6:09 PM
  */
+@RefreshScope
 @RestController
 public class CustomerController {
 
