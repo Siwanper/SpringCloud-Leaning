@@ -1,0 +1,41 @@
+server:
+  port: 8002
+
+spring:
+
+  application:
+    name: service-b
+
+  cloud:
+    config:
+      discovery:
+        service-id: config
+        enabled: true
+    bus:
+      trace:
+        enabled: true
+      enabled: true
+
+  rabbitmq:
+      host: rabbitmq
+      port: 5672
+      username: guest
+      password: guest
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://registry:8080/eureka/
+
+feign:
+  hystrix:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
