@@ -1,10 +1,24 @@
 version: '3'
 services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    restart: always
+    ports:
+      - 5672:5672
+      - 15673:15672
   registry:
     image: spring-boot-cloud/registry
     restart: on-failure
     ports:
       - "8080:8080"
+  config:
+    image: spring-boot-cloud/config
+    restart: on-failure
+    ports:
+      - "9001:9001"
+    depends_on:
+      - registry
+      - rabbitmq
   service-a:
     image: spring-boot-cloud/service-a
     restart: on-failure
@@ -12,6 +26,8 @@ services:
       - "8001:8001"
     depends_on:
       - registry
+      - rabbitmq
+      - config
   service-b:
     image: spring-boot-cloud/service-b
     restart: on-failure
@@ -19,3 +35,5 @@ services:
       - "8002:8002"
     depends_on:
       - registry
+      - rabbitmq
+      - config
