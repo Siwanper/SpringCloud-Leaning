@@ -11,6 +11,8 @@ spring:
       discovery:
         service-id: config
         enabled: true
+      name: service-b
+      profile: pro
     bus:
       trace:
         enabled: true

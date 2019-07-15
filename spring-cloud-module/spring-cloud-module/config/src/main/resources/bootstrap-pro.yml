@@ -1,5 +1,14 @@
 server:
   port: 9001
+
+eureka:
+  instance:
+    hostname: config
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://registry:8080/eureka/
+
 spring:
   application:
     name: config
@@ -22,10 +31,8 @@ spring:
     port: 5672
     username: guest
     password: guest
-eureka:
-  client:
-    service-url:
-      defaultZone: http://registry:8080/eureka/
+
+
 management:
   endpoints:
     web:

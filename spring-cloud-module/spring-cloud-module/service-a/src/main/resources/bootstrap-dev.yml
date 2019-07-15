@@ -1,3 +1,15 @@
+
+server:
+  port: 8001
+
+eureka:
+  instance:
+    hostname: service-a
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+
 spring:
   application:
     name: service-a
@@ -6,6 +18,8 @@ spring:
       discovery:
         service-id: config
         enabled: true
+      name: service-a
+      profile: dev
     bus:
       trace:
         enabled: true
@@ -16,14 +30,6 @@ spring:
       port: 5672
       username: guest
       password: guest
-
-server:
-  port: 8001
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8080/eureka/
 
 feign:
   hystrix:
