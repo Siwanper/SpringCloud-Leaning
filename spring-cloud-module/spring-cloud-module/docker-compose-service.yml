@@ -1,0 +1,23 @@
+version: '3'
+services:
+  service-a:
+    image: spring-boot-cloud/service-a
+    hostname: service-a
+    restart: on-failure
+    ports:
+      - "8001:8001"
+    external_links:
+      - registry
+      - rabbitmq
+      - config
+
+  service-b:
+    image: spring-boot-cloud/service-b
+    hostname: service-b
+    restart: on-failure
+    ports:
+      - "8002:8002"
+    external_links:
+      - registry
+      - rabbitmq
+      - config

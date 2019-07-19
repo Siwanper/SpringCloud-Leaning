@@ -1,5 +1,5 @@
 server:
-  port: 9001
+  port: 8888
 
 eureka:
   instance:
@@ -20,7 +20,7 @@ spring:
           search-paths: spring-cloud-module/spring-cloud-module/config-repo-pro
           username: Siwanper
           password: Shi18740961619
-
+      enabled: true
     bus:
       enabled: true
       trace:
