@@ -1,5 +1,17 @@
 version: '3'
 services:
+
+  gateway:
+    image: spring-boot-cloud/gateway
+    hostname: gateway
+    restart: on-failure
+    ports:
+      - "9000:9000"
+    external_links:
+      - registry
+      - rabbitmq
+      - config
+
   service-a:
     image: spring-boot-cloud/service-a
     hostname: service-a
