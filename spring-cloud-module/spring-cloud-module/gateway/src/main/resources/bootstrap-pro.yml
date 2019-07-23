@@ -1,0 +1,50 @@
+server:
+  port: 9000
+
+eureka:
+  instance:
+    hostname: gateway
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://registry:8080/eureka/
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    config:
+      discovery:
+        service-id: config
+        enabled: true
+      name: gateway
+      profile: pro
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+    bus:
+      trace:
+        enabled: true
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
+
+feign:
+  hystrix:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
