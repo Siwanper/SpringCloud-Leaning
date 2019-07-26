@@ -1,14 +1,20 @@
 spring:
   application:
     name: registry
+  security:
+    user:
+      name: user
+      password: ${REGISTRY_SERVER_PASSWORD:password}
 
 server:
   port: 8080
+
 eureka:
   client:
     fetch-registry: false
     register-with-eureka: false
     service-url:
-      defaultZone: http://localhost:8080/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@localhost:${server.port}/eureka/
+
 
 

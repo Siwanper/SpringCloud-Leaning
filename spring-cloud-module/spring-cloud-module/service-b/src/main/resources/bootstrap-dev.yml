@@ -5,9 +5,12 @@ eureka:
   instance:
     hostname: service-b
     prefer-ip-address: true
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
   client:
     service-url:
-      defaultZone: http://localhost:8080/eureka/
+      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@localhost:8080/eureka/
 
 spring:
 
@@ -21,6 +24,8 @@ spring:
         enabled: true
       name: service-b
       profile: dev
+      username: user
+      password: ${CONFIG_SERVER_PASSWORD:password}
     bus:
       trace:
         enabled: true
@@ -32,6 +37,10 @@ spring:
       username: guest
       password: guest
 
+  security:
+    user:
+      name: user
+      password: password
 
 
 feign:

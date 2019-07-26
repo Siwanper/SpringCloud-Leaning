@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="config" />
         <module name="gateway" />
+        <module name="oauth" />
         <module name="registry" />
         <module name="service-a" />
         <module name="service-b" />
@@ -16,6 +17,7 @@
     <bytecodeTargetLevel>
       <module name="config" target="1.8" />
       <module name="gateway" target="1.8" />
+      <module name="oauth" target="1.8" />
       <module name="registry" target="1.8" />
       <module name="service-a" target="1.8" />
       <module name="service-b" target="1.8" />

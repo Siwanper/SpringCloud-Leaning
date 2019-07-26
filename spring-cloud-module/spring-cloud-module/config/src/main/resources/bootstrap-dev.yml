@@ -5,9 +5,12 @@ eureka:
   instance:
     hostname: config
     prefer-ip-address: true
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
   client:
     service-url:
-      defaultZone: http://localhost:8080/eureka/
+      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@localhost:8080/eureka/
 
 spring:
   application:
@@ -31,6 +34,11 @@ spring:
     port: 5672
     username: guest
     password: guest
+
+  security:
+    user:
+      name: user
+      password: ${CONFIG_SERVER_PASSWORD:password}
 
 management:
   endpoints:

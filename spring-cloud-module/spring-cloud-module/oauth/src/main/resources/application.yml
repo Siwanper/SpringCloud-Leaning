@@ -1,0 +1,30 @@
+
+server:
+  port: 5000
+
+spring:
+  application:
+    name: oauth
+
+  datasource:
+    url: jdbc:h2:mem:user
+    driver-class-name: org.h2.Driver
+    schema: classpath:schema.sql
+    initialization-mode: always
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  cloud:
+    refresh:
+      refreshable: none
+
+eureka:
+  instance:
+    hostname: oauth
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@localhost:8080/eureka/

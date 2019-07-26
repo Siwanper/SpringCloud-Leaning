@@ -13,6 +13,8 @@ spring:
         enabled: true
       name: service-b
       profile: pro
+      username: user
+      password: ${CONFIG_SERVER_PASSWORD:password}
     bus:
       trace:
         enabled: true
@@ -24,10 +26,21 @@ spring:
       username: guest
       password: guest
 
+  security:
+    user:
+      name: user
+      password: password
+
 eureka:
+  instance:
+    hostname: service-b
+    prefer-ip-address: true
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
   client:
     service-url:
-      defaultZone: http://registry:8080/eureka/
+      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@registry:8080/eureka/
 
 feign:
   hystrix:
