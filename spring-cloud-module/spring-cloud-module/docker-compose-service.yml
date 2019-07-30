@@ -12,6 +12,17 @@ services:
       - rabbitmq
       - config
 
+  oauth:
+    image: spring-boot-cloud/oauth
+    hostname: oauth
+    restart: on-failure
+    ports:
+      - "5000:5000"
+    external_links:
+      - registry
+      - rabbitmq
+      - config
+
   service-a:
     image: spring-boot-cloud/service-a
     hostname: service-a

@@ -50,7 +50,18 @@ public class OAutherConfiguration extends AuthorizationServerConfigurerAdapter {
                 .authorities("ROLE_USER", "ROLE_ADMIN")
                 .authorizedGrantTypes("password", "refresh_token")
                 .secret("$2a$10$.zN2l7RN3hxBQ5mf9rnITuIVEwaLfb0XR8aXBU0eAbFaBfP7.OD.a")
-                .accessTokenValiditySeconds(1800);
+                .accessTokenValiditySeconds(1800)
+                .and()
+                .withClient("service-a")
+                .secret("$2a$10$.zN2l7RN3hxBQ5mf9rnITuIVEwaLfb0XR8aXBU0eAbFaBfP7.OD.a")
+                .authorizedGrantTypes("client_credentials", "refresh_token")
+                .scopes("server")
+                .and()
+                .withClient("service-b")
+                .secret("$2a$10$.zN2l7RN3hxBQ5mf9rnITuIVEwaLfb0XR8aXBU0eAbFaBfP7.OD.a")
+                .authorizedGrantTypes("client_credentials", "refresh_token")
+                .scopes("server")
+        ;
     }
 
     @Autowired

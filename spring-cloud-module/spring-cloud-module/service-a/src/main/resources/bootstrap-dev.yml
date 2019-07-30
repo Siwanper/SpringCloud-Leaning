@@ -40,10 +40,28 @@ spring:
     user:
       name: user
       password: password
+    filter:
+      order: 3
 
 feign:
   hystrix:
     enabled: true
+
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://${authserver.hostname}:${authserver.port}/current
+    client:
+      clientId: service-a
+      clientSecret: $2a$10$.zN2l7RN3hxBQ5mf9rnITuIVEwaLfb0XR8aXBU0eAbFaBfP7.OD.a
+      accessTokenUri: http://${authserver.hostname}:${authserver.port}/oauth/token
+      grant-type: client_credentials
+      scope: server
+
+authserver:
+  hostname: localhost
+  port: 5000
 
 management:
   endpoints:
@@ -53,3 +71,5 @@ management:
   endpoint:
     health:
       show-details: always
+
+
