@@ -1,1 +1,13 @@
 msg: oauth111 dev
+
+server:
+  servlet:
+    context-path: /uaa
+  port: 5000
+
+eureka:
+  instance:
+    health-check-url-path: ${server.servlet.context-path}/actuator/health
+    status-page-url-path: ${server.servlet.context-path}/actuator/info
+    metadata-map:
+      management.context-path: ${server.servlet.context-path}

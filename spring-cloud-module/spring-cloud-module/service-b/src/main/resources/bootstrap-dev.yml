@@ -50,18 +50,18 @@ feign:
 security:
   oauth2:
     resource:
-      user-info-uri: http://${authserver.hostname}:${authserver.port}/current
+      user-info-uri: http://${authserver.hostname}:${authserver.port}${authserver.contextPath}/current
     client:
       clientId: service-b
-      clientSecret: $2a$10$.zN2l7RN3hxBQ5mf9rnITuIVEwaLfb0XR8aXBU0eAbFaBfP7.OD.a
-      accessTokenUri: http://${authserver.hostname}:${authserver.port}/oauth/token
+      clientSecret: ${spring.security.user.password}
+      accessTokenUri: http://${authserver.hostname}:${authserver.port}${authserver.contextPath}/oauth/token
       grant-type: client_credentials
       scope: server
 
 authserver:
   hostname: localhost
   port: 5000
-
+  contextPath: /uaa
 
 management:
   endpoints:

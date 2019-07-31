@@ -24,10 +24,7 @@ spring:
       profile: dev
       username: user
       password: ${CONFIG_SERVER_PASSWORD:password}
-    gateway:
-      discovery:
-        locator:
-          enabled: true
+
     bus:
       trace:
         enabled: true
@@ -43,6 +40,7 @@ spring:
       name: admin
       password: ${GATEWAY_SERVER_PASSWORD:admin}
 
+
 feign:
   hystrix:
     enabled: true
@@ -55,7 +53,16 @@ management:
   endpoint:
     health:
       show-details: always
-
-logging:
-  level:
-    org.springframework.cloud.gateway: debug
+zuul:
+  ignored-services: '*'
+  routes:
+    oauth:
+      path: /uaa/**
+      stripPrefix: false
+      sensitiveHeaders:
+    service-a:
+      path: /svca/**
+      sensitiveHeaders:
+    service-b:
+      path: /svcb/**
+      sensitiveHeaders:
