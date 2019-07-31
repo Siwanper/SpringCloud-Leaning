@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
 import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 
 /**
@@ -19,7 +20,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
  * @create 2019-07-26 12:01 PM
  */
 @Configuration
-@EnableWebSecurity
+@EnableResourceServer
 @EnableGlobalMethodSecurity(prePostEnabled = true, jsr250Enabled = true)
 public class ServiceASecurityConfig extends ResourceServerConfigurerAdapter {
 
