@@ -24,10 +24,7 @@ spring:
       profile: pro
       username: user
       password: ${CONFIG_SERVER_PASSWORD:password}
-    gateway:
-      discovery:
-        locator:
-          enabled: true
+
     bus:
       trace:
         enabled: true
@@ -55,6 +52,28 @@ management:
     health:
       show-details: always
 
-logging:
-  level:
-    org.springframework.cloud.gateway: debug
+zuul:
+  ignored-services: '*'
+  routes:
+    oauth:
+      path: /uaa/**
+      stripPrefix: false
+      sensitiveHeaders:
+    service-a:
+      path: /svca/**
+      sensitiveHeaders:
+    service-b:
+      path: /svcb/**
+      sensitiveHeaders:
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
