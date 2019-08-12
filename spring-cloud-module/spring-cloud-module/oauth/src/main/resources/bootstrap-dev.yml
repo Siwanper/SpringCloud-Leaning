@@ -4,7 +4,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/cloud?characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/cloud?characterEncoding=utf8
     username: root
     password: Shi18740961619?
     #最大活跃数
@@ -36,23 +36,6 @@ spring:
   cloud:
     refresh:
       refreshable: none
-    config:
-      discovery:
-        service-id: config
-        enabled: true
-      name: oauth
-      profile: dev
-      username: user
-      password: ${CONFIG_SERVER_PASSWORD:password}
-    bus:
-      trace:
-        enabled: true
-
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
 
 eureka:
   instance:

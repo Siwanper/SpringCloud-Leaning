@@ -22,6 +22,7 @@ services:
       - registry
       - rabbitmq
       - config
+      - mysql
 
   service-a:
     image: spring-boot-cloud/service-a
