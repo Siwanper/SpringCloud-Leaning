@@ -99,7 +99,7 @@ docker-compose -f docker-compose.yml -f docker-compose.center.yml up -d eureka-s
 docker-compose -f docker-compose.yml -f docker-compose.center.yml up -d config-server
 
 #启动消息中心
-docker-compose -f docker-compose.yml -f docker-compose.center.yml up -d bud-server
+docker-compose -f docker-compose.yml -f docker-compose.center.yml up -d bus-server
 
 #回到根目录
 cd -
