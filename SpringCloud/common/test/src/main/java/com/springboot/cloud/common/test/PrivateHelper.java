@@ -36,7 +36,6 @@ public class PrivateHelper {
         Field signingKeyField = ReflectionUtils.findField(instance.getClass(), fieldName);
         ReflectionUtils.makeAccessible(signingKeyField);
         ReflectionUtils.setField(signingKeyField, instance, value);
-
     }
 
     /**
