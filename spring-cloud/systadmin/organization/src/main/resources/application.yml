@@ -1,0 +1,12 @@
+
+server:
+  port: 8010
+
+spring:
+  application:
+    name: organization
+  datasource:
+    url: jdbc:${DATASOURCE_DB:mysql}://${DATASOURCE_HOST:localhost}:${DATASOURCE_PORT:3306}/sc_admin?characterEncoding=utf8
+    username: root
+    password: Shi18740961619?
+    driver-class-name: com.mysql.jdbc.Driver
