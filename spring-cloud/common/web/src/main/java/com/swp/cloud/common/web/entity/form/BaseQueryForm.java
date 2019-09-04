@@ -16,7 +16,7 @@ import org.springframework.beans.BeanUtils;
 @ApiModel
 @Slf4j
 @Data
-public class BaseQueryForm<P extends BaseParam> extends BaseParam {
+public class BaseQueryForm<P extends BaseParam> extends BaseForm {
 
     /**
      * 分页查询参数，当前页数

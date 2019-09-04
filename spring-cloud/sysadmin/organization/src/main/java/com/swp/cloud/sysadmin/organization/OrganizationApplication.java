@@ -1,9 +1,14 @@
-package com.swp.cloud.organization;
+package com.swp.cloud.sysadmin.organization;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
+@EnableDiscoveryClient
+// 断路器
+@EnableCircuitBreaker
 public class OrganizationApplication {
 
 	public static void main(String[] args) {

@@ -37,12 +37,14 @@ public class UserInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
         checkToken(request.getHeader(X_CLIENT_TOKEN));
         String userInfo = StringUtils.defaultIfBlank(request.getHeader(X_CLIENT_TOKEN_USER), "{}");
+        System.out.println("userinfo : " + userInfo);
         UserContextHolder.getInstance().setContext(new ObjectMapper().readValue(userInfo, Map.class));
         return true;
     }
 
     private void checkToken(String token) {
         // TODO 验证token
+        System.out.println("TODO 验证token");
     }
 
     @Override
