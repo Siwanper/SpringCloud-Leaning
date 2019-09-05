@@ -5,7 +5,7 @@ import com.swp.cloud.sysadmin.organization.entity.form.UserForm;
 import com.swp.cloud.sysadmin.organization.entity.form.UserQueryForm;
 import com.swp.cloud.sysadmin.organization.entity.param.UserQueryParam;
 import com.swp.cloud.sysadmin.organization.entity.po.User;
-import com.swp.cloud.sysadmin.organization.service.IUserService;
+import com.swp.cloud.sysadmin.organization.service.impl.UserService;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ import javax.validation.Valid;
 public class UserController {
 
     @Autowired
-    private IUserService userService;
+    private UserService userService;
 
     @ApiOperation(value = "添加用户", notes = "添加用户")
     @ApiImplicitParam(name = "userForm", value = "用户表单信息", dataType = "UserForm", required = true)
