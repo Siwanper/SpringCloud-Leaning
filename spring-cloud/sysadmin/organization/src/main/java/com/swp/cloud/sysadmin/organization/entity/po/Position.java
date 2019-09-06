@@ -9,23 +9,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 描述:
+ * 描述: 岗位表
  *
  * @outhor ios
- * @create 2019-09-05 6:51 PM
+ * @create 2019-09-06 10:43 AM
  */
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@TableName("groups")
-public class Group extends BasePo {
+@TableName
+public class Position extends BasePo {
 
-    // 用户组父id
-    private long parentId;
-    // 用户组名称
+    // 岗位名称
     private String name;
-    // 描述
+    // 岗位描述
     private String description;
     // 是否已删除Y：已删除，N：未删除
     @TableLogic

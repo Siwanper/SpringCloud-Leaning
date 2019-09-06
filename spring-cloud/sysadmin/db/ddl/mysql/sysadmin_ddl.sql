@@ -38,7 +38,7 @@ CREATE TABLE menu
   icon         VARCHAR(200) COMMENT '菜单图标',
   name         VARCHAR(200) COMMENT '菜单名称',
   description  VARCHAR(500) COMMENT '描述',
-  order_num    INTEGER COMMENT '创建时间',
+  order_num    INTEGER COMMENT '菜单序号',
   created_time DATETIME     NOT NULL DEFAULT now() COMMENT '创建时间',
   updated_time DATETIME     NOT NULL DEFAULT now() COMMENT '更新时间',
   created_by   VARCHAR(100) NOT NULL COMMENT '创建人',
