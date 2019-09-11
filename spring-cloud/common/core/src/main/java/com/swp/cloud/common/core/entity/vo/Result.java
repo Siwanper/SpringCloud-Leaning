@@ -1,6 +1,5 @@
 package com.swp.cloud.common.core.entity.vo;
 
-import com.sun.xml.internal.rngom.parse.host.Base;
 import com.swp.cloud.common.core.exception.BaseException;
 import com.swp.cloud.common.core.exception.ErrorType;
 import com.swp.cloud.common.core.exception.SystemErrorType;

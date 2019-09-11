@@ -3,17 +3,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<artifactId>webapps</artifactId>
+		<artifactId>webapp-parent</artifactId>
 		<groupId>com.swp.cloud</groupId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../webapps/webapp-parent/pom.xml</relativePath>
 	</parent>
 
-	<artifactId>systadmin</artifactId>
+	<artifactId>sysadmin</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>systadmin</name>
+	<name>sysadmin</name>
 	<description>后台管理</description>
 
 	<modules>
