@@ -1,7 +1,10 @@
 package com.swp.oauth2.server.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -27,6 +30,14 @@ import java.util.concurrent.TimeUnit;
 public class oauthServerConfig extends AuthorizationServerConfigurerAdapter{
 
     /**
+     * 密码模式需要设置AuthenticationManager
+     * 否则会报错：Unsupported grant type: password
+     */
+    @Autowired
+    @Qualifier("authenticationManagerBean")
+    private AuthenticationManager authenticationManager;
+
+    /**
      * 客户端配置 用于定义客户详细信息服务的配置器
      * @param clients
      * @throws Exception
@@ -42,12 +53,13 @@ public class oauthServerConfig extends AuthorizationServerConfigurerAdapter{
                 .redirectUris("http://localhost:8086/login") // 验证的回调地址
                 .accessTokenValiditySeconds(60 * 60 * 12) // token 有效期
                 .refreshTokenValiditySeconds(60 * 60 * 30 *24) // refresh_token 有效期
+                .authorities("ADMIN_USER") // 客服端的权限
                 .and()
                 .withClient("client2")
-                .secret(new BCryptPasswordEncoder().encode("123456"))
-                .authorizedGrantTypes("authorization_code", "refresh_token")
-                .scopes("All")
-                .autoApprove(false)
+                .secret("$2a$10$QH4tjuirsZ2h4JYLgnB0COG4V./MO376sXxzL6rSmkFOnhwf6xrSW")
+                .authorizedGrantTypes("authorization_code", "refresh_token" , "password", "client_credentials")
+                .scopes("read")
+                .autoApprove(true)
                 .redirectUris("http://localhost:8087/login");
     }
 
@@ -68,6 +80,7 @@ public class oauthServerConfig extends AuthorizationServerConfigurerAdapter{
         tokenServices.setSupportRefreshToken(true);
         tokenServices.setAccessTokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(1));
         endpoints.tokenServices(tokenServices);
+        endpoints.authenticationManager(authenticationManager);
     }
 
     /**
@@ -77,7 +90,9 @@ public class oauthServerConfig extends AuthorizationServerConfigurerAdapter{
      */
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        security.tokenKeyAccess("isAuthenticated()");
+        security.allowFormAuthenticationForClients();
+        security.tokenKeyAccess("isAuthenticated()")
+                .checkTokenAccess("permitAll()");
     }
 
     @Bean
