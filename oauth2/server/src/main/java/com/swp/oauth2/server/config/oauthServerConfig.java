@@ -100,7 +100,7 @@ public class oauthServerConfig extends AuthorizationServerConfigurerAdapter{
         return new JwtTokenStore(jwtAccessTokenConverter());
     }
 
-    // token生成器)，按照设置的签名来生成Token JwtAccessTokenConverter实现了Token增强器TokenEnhancer接口和令牌转换器AccessTokenConverter接口
+    // token生成器，按照设置的签名来生成Token JwtAccessTokenConverter实现了Token增强器TokenEnhancer接口和令牌转换器AccessTokenConverter接口
     @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter() {
         JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();

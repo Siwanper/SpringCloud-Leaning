@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@TableName("groups")
+@TableName("group")
 public class Group extends BasePo {
 
     // 用户组父id

@@ -20,7 +20,7 @@ esac
 
 echo '=====================2.清理启动的容器和产生的镜像=========================='
 docker stop sc-rabbitmq sc-redis sc-mysql
-docker rm sc-rabbitmq
+docker rm sc-rabbitmq sc-redis sc-mysql
 docker image rm rabbitmq:alpine redis:alpine mysql:5.6
 
 docker stop sc-eureka sc-bus sc-config sc-organization
@@ -37,7 +37,7 @@ cd -
 
 echo '=====================3.启动基础服务=========================='
 cd docker-compose
-docker-compose -f docker-compose.yml up -d mysql
+#docker-compose -f docker-compose.yml up -d mysql
 docker-compose -f docker-compose.yml up -d redis
 docker-compose -f docker-compose.yml up -d rabbitmq
 cd -

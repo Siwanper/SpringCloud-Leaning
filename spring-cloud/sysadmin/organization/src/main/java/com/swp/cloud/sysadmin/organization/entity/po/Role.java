@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName("roles")
+@TableName("role")
 public class Role extends BasePo {
 
     // 角色code

@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName("users")
+@TableName("user")
 public class User extends BasePo{
 
     // 用户名
@@ -39,10 +39,10 @@ public class User extends BasePo{
     // 是否有效用户
     private Boolean enabled;
     // 账号是否未过期
-    private Boolean account_non_expired;
+    private Boolean accountNonExpired;
     // 密码是否未过期
-    private Boolean credentials_non_expired;
+    private Boolean credentialsNonExpired;
     // 是否未锁定
-    private Boolean account_non_locked;
+    private Boolean accountNonLocked;
 
 }

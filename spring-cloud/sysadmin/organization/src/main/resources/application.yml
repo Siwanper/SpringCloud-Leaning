@@ -12,7 +12,7 @@ spring:
     name: organization
 
   datasource:
-    url: jdbc:${DATASOURCE_DB:mysql}://${DATASOURCE_HOST:localhost}:${DATASOURCE_PORT:3306}/sc_admin?characterEncoding=utf8
+    url: jdbc:${DATASOURCE_DB:mysql}://${DATASOURCE_HOST:47.105.184.71}:${DATASOURCE_PORT:3306}/sc_admin?characterEncoding=UTF-8&useUnicode=true&useSSL=false
     username: ${DATASOURCE_USERNAME:root}
     password: ${DATASOURCE_PASSWORD:Shi18740961619?}
     driver-class-name: com.mysql.jdbc.Driver
@@ -53,14 +53,10 @@ management:
       exposure:
         include: "*"
 
-mybatis:
+mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
-
-mybatis-plus:
   global-config:
     db-config:
-      id-type: 0 # 0为AUTO
-      # 如果属性使用了TableLogic注解
       logic-delete-value: "Y" # 逻辑已删除值(默认为 Y)
       logic-not-delete-value: "N" # 逻辑未删除值(默认为 N)
