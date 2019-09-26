@@ -1,6 +1,7 @@
 package com.swp.cloud.authorizationserver.config;
 
 import com.swp.cloud.authorizationserver.oauth.CustomUserDetailService;
+import com.swp.cloud.authorizationserver.oauth.enhancer.CustomTokenEnhancer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -71,7 +72,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .authorizationCodeServices(authorizationCodeServices())
                 .approvalStore(approvalStore())
 //                .exceptionTranslator(customExceptionTranslator())
-                .tokenEnhancer(accessTokenConverter())
+                .tokenEnhancer(tokenEnhancerChain())
                 .authenticationManager(authenticationManager)
                 .userDetailsService(userDetailsService);
         //update by joe_chen add  granter
@@ -98,6 +99,13 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     protected AuthorizationCodeServices authorizationCodeServices() {
         // 授权码存储等处理方式类，使用jdbc，操作oauth_code表
         return new JdbcAuthorizationCodeServices(dataSource);
+    }
+
+    @Bean
+    public TokenEnhancerChain tokenEnhancerChain(){
+        TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
+        tokenEnhancerChain.setTokenEnhancers(Arrays.asList(new CustomTokenEnhancer(), accessTokenConverter()));
+        return tokenEnhancerChain;
     }
 
     /**

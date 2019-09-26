@@ -21,11 +21,6 @@
 			<artifactId>web</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		<!--oauth2认证-->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-security</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
