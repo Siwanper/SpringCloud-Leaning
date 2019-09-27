@@ -1,5 +1,6 @@
 package com.swp.cloud.authorizationserver.config;
 
+import com.swp.cloud.authorizationserver.exception.CustomWebResponseExceptionTranslator;
 import com.swp.cloud.authorizationserver.oauth.CustomUserDetailService;
 import com.swp.cloud.authorizationserver.oauth.enhancer.CustomTokenEnhancer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,7 +72,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         endpoints.tokenStore(tokenStore())
                 .authorizationCodeServices(authorizationCodeServices())
                 .approvalStore(approvalStore())
-//                .exceptionTranslator(customExceptionTranslator())
+                .exceptionTranslator(customWebResponseExceptionTranslator())
                 .tokenEnhancer(tokenEnhancerChain())
                 .authenticationManager(authenticationManager)
                 .userDetailsService(userDetailsService);
@@ -106,6 +107,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
         tokenEnhancerChain.setTokenEnhancers(Arrays.asList(new CustomTokenEnhancer(), accessTokenConverter()));
         return tokenEnhancerChain;
+    }
+
+    @Bean
+    public CustomWebResponseExceptionTranslator customWebResponseExceptionTranslator(){
+        return new CustomWebResponseExceptionTranslator();
     }
 
     /**

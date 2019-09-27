@@ -15,13 +15,13 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  */
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-@EnableOAuth2Sso
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.antMatcher("/**").authorizeRequests()
+        http.csrf().disable();
+        http.authorizeRequests()
+                .antMatchers("/actuator").permitAll()
                 .anyRequest().authenticated();
     }
 }
