@@ -24,14 +24,3 @@ spring:
     username: ${RABBIT_MQ_USERNAME:guest}
     password: ${RABBIT_MQ_PASSWORD:guest}
 
-security:
-  oauth2:
-    client:
-      client-id: test_client
-      client-secret: test_secret
-      user-authorization-uri: http://localhost:8000/cloud/oauth/authorize
-      access-token-uri: http://localhost:8000/cloud/oauth/token
-    resource:
-      jwt:
-        key-uri: http://localhost:8000/cloud/oauth/token_key
-

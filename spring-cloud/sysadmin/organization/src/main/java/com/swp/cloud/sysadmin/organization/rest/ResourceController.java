@@ -79,6 +79,7 @@ public class ResourceController {
     @ApiResponses({@ApiResponse(code = 200, message = "处理成功", response = Result.class)})
     @GetMapping("/all")
     public Result query(){
+        log.info("all resource:{}", resourceService.query(new ResourceQueryParam()));
         return Result.success(resourceService.query(new ResourceQueryParam()));
     }
 
@@ -87,7 +88,7 @@ public class ResourceController {
     @ApiResponses({@ApiResponse(code = 200, message = "处理成功", response = Result.class)})
     @GetMapping("/user/{username}")
     public Result query(@PathVariable String username){
-        log.debug("username :{}",username);
+        log.debug("username :{}, resource: {}", username, resourceService.query(username));
         return Result.success(resourceService.query(username));
     }
 

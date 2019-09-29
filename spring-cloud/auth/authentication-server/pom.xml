@@ -16,5 +16,11 @@
 	<name>authentication-server</name>
 	<description>Demo project for Spring Boot</description>
 
-
+	<dependencies>
+		<dependency>
+			<groupId>com.swp.cloud</groupId>
+			<artifactId>web</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 </project>

@@ -96,7 +96,8 @@ public class ResourceService implements IResourceService {
 
         User user = userService.getUnique(username);
         List<Role> roles = roleService.query(user.getId());
-        List<RoleResource> roleResources = roleResourceMapper.selectBatchIds(roles.stream().map(role -> role.getId()).collect(Collectors.toList()));
+        List<Long> roleIds = roles.stream().map(role -> role.getId()).collect(Collectors.toList());
+        List<RoleResource> roleResources = roleResourceMapper.selectList(new QueryWrapper<RoleResource>().in("role_id", roleIds));
 
         return resourceMapper.selectBatchIds(roleResources.stream().map(roleResource -> roleResource.getResourceId()).collect(Collectors.toList()));
     }
