@@ -28,7 +28,7 @@ public class NewMvcRequestMatcher extends MvcRequestMatcher {
     @Override
     public boolean equals(Object obj) {
 
-        if (this.equals(obj)){
+        if (this == obj){
             return true;
         }
 

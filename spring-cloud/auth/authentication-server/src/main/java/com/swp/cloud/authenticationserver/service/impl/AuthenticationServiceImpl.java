@@ -1,6 +1,6 @@
 package com.swp.cloud.authenticationserver.service.impl;
 
-import com.swp.cloud.authenticationserver.entity.po.Resource;
+import com.swp.cloud.sysadmin.organization.entity.po.Resource;
 import com.swp.cloud.authenticationserver.service.IAuthenticationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

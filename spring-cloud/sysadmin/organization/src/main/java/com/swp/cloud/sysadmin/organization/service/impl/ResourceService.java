@@ -3,14 +3,15 @@ package com.swp.cloud.sysadmin.organization.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.swp.cloud.sysadmin.organization.config.BusConfig;
 import com.swp.cloud.sysadmin.organization.dao.ResourceMapper;
 import com.swp.cloud.sysadmin.organization.dao.RoleResourceMapper;
-import com.swp.cloud.sysadmin.organization.dao.UserMapper;
 import com.swp.cloud.sysadmin.organization.entity.param.ResourceQueryParam;
 import com.swp.cloud.sysadmin.organization.entity.po.Resource;
 import com.swp.cloud.sysadmin.organization.entity.po.Role;
 import com.swp.cloud.sysadmin.organization.entity.po.RoleResource;
 import com.swp.cloud.sysadmin.organization.entity.po.User;
+import com.swp.cloud.sysadmin.organization.event.EventSender;
 import com.swp.cloud.sysadmin.organization.service.IResourceService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +43,12 @@ public class ResourceService implements IResourceService {
     @Autowired
     private RoleService roleService;
 
+    @Autowired
+    private EventSender eventSender;
+
     @Override
     public long add(Resource resource) {
+        eventSender.send(BusConfig.QUEUE_NAME, resource);
         return resourceMapper.insert(resource);
     }
 

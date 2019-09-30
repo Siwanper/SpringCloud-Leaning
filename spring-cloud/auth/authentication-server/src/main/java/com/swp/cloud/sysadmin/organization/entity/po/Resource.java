@@ -1,4 +1,4 @@
-package com.swp.cloud.authenticationserver.entity.po;
+package com.swp.cloud.sysadmin.organization.entity.po;
 
 import com.swp.cloud.common.core.entity.po.BasePo;
 import lombok.Data;

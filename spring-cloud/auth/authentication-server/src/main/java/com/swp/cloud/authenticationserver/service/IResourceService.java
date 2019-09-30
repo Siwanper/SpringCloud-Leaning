@@ -1,6 +1,6 @@
 package com.swp.cloud.authenticationserver.service;
 
-import com.swp.cloud.authenticationserver.entity.po.Resource;
+import com.swp.cloud.sysadmin.organization.entity.po.Resource;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 
@@ -11,7 +11,7 @@ import java.util.Set;
 public interface IResourceService {
 
     /**
-     * 获取所有的资源信息
+     * 获取所有的资源信息，保存在内存中
      * @return
      */
     Map<RequestMatcher, ConfigAttribute> loadAllResources();
@@ -29,5 +29,18 @@ public interface IResourceService {
      * @return
      */
     Set<Resource> queryResouceByUsername(String username);
+
+    /**
+     * 保存资源
+     * @param resource
+     */
+    void saveResource(Resource resource);
+
+    /**
+     * 删除资源
+     * @param resource
+     */
+    void removeResource(Resource resource);
+
 
 }

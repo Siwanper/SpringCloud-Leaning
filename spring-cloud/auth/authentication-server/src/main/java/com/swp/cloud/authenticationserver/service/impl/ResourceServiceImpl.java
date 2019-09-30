@@ -1,13 +1,12 @@
 package com.swp.cloud.authenticationserver.service.impl;
 
-import com.swp.cloud.authenticationserver.entity.po.Resource;
+import com.swp.cloud.sysadmin.organization.entity.po.Resource;
 import com.swp.cloud.authenticationserver.provider.ResourceProvider;
 import com.swp.cloud.authenticationserver.service.IResourceService;
 import com.swp.cloud.authenticationserver.service.NewMvcRequestMatcher;
 import com.swp.cloud.common.core.entity.vo.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
@@ -70,6 +69,18 @@ public class ResourceServiceImpl implements IResourceService {
     public Set<Resource> queryResouceByUsername(String username) {
         Result<Set<Resource>> resources = resourceProvider.resources(username);
         return resources.getData();
+    }
+
+    @Override
+    public void saveResource(Resource resource) {
+        this.resourceConfigAttributes.put(this.requestMatcher(resource.getUrl(), resource.getMethod()), new SecurityConfig(resource.getCode()));
+        log.info("save resourceConfigAttributes:{}", this.resourceConfigAttributes);
+    }
+
+    @Override
+    public void removeResource(Resource resource) {
+        this.resourceConfigAttributes.remove(this.requestMatcher(resource.getUrl(), resource.getMethod()));
+        log.info("delete resourceConfigAttributes:{}", this.resourceConfigAttributes);
     }
 
     public MvcRequestMatcher requestMatcher(String url, String method){

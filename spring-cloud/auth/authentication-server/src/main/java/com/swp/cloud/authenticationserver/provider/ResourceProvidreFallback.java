@@ -1,6 +1,6 @@
 package com.swp.cloud.authenticationserver.provider;
 
-import com.swp.cloud.authenticationserver.entity.po.Resource;
+import com.swp.cloud.sysadmin.organization.entity.po.Resource;
 import com.swp.cloud.common.core.entity.vo.Result;
 
 import java.util.HashSet;
