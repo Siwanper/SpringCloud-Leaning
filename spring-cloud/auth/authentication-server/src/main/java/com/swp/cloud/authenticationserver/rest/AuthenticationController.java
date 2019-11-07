@@ -26,6 +26,7 @@ public class AuthenticationController {
     @RequestMapping(value = "/auth/permission", method = RequestMethod.POST)
     public Result decide(@RequestParam String url, @RequestParam String method, HttpServletRequest request){
         boolean decide = authenticationService.decide(new HttpServletRequestAuthWrapper(request, url, method));
+        System.out.println("decide == " + decide);
         return Result.success(decide);
     }
 

@@ -45,6 +45,7 @@ public class AuthServiceImpl implements IAuthService {
 
     @Override
     public Result auth(String authentication, String url, String method) {
+        System.out.println("authentication");
         return authProvider.auth(authentication, url, method);
     }
 

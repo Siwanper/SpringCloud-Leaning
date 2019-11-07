@@ -6,13 +6,14 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Component
 @FeignClient(name = "authentication-server", fallback = AuthProvider.AuthProviderFallback.class)
 public interface AuthProvider {
 
-    @PostMapping("/auth/permission")
-    Result auth(@RequestHeader(HttpHeaders.AUTHORIZATION) String authentication, String url, String method);
+    @PostMapping(value = "/auth/permission")
+    Result auth(@RequestHeader(HttpHeaders.AUTHORIZATION) String authentication, @RequestParam("url") String url, @RequestParam("method") String method);
 
     @Component
     class AuthProviderFallback implements AuthProvider {
