@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +30,7 @@ import java.util.List;
 @Slf4j
 public class GatewayRouteForm extends BaseForm<GatewayRoute> {
 
-    @NotBlank(message = "断言不能为空")
+    @NotEmpty(message = "断言不能为空")
     @ApiModelProperty(value = "网关断言")
     private List<PredicateDefinition> predicates = new ArrayList<>();
 
