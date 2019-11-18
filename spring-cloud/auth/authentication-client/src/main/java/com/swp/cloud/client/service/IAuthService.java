@@ -1,6 +1,7 @@
 package com.swp.cloud.client.service;
 
 import com.swp.cloud.common.core.entity.vo.Result;
+import org.springframework.security.jwt.Jwt;
 
 
 public interface IAuthService {
@@ -43,5 +44,12 @@ public interface IAuthService {
      * @return
      */
     boolean invalideJwtAccessToken(String authentication);
+
+    /**
+     * 获取jwt
+     * @param authentication
+     * @return
+     */
+    Jwt getJwt(String authentication);
 
 }

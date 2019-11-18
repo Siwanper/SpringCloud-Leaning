@@ -18,6 +18,7 @@
 
 	<modules>
 		<module>gateway-admin</module>
+		<module>gateway-web</module>
 	</modules>
 
 </project>

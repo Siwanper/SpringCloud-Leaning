@@ -97,4 +97,9 @@ public class GatewayRouteController {
         return Result.success(gatewayRouteService.overload());
     }
 
+    @GetMapping("/hello")
+    public String hello(){
+        return "Hello gateway-web";
+    }
+
 }
