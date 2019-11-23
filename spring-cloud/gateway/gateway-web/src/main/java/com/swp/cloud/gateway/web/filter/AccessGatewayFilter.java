@@ -29,7 +29,7 @@ public class AccessGatewayFilter implements GlobalFilter {
 
     private final static String X_CLIENT_TOKEN_USER = "x-client-token-user";
     private final static String X_CLIENT_TOKEN = "x-client-token";
-    private static final String BEARER = "bearer";
+    private static final String BEARER = "Bearer";
 
     @Autowired
     private IAuthService authService;

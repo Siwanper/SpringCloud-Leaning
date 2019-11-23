@@ -31,11 +31,9 @@ public class AuthServiceImpl implements IAuthService {
      */
     private static int BEARER_BEGIN_INDEX = 7;
 
-    @Value("${spring.security.oauth2.jwt.signingKey}")
-    private String signingKey;
+    private String signingKey = "testKey";
 
-    @Value("${gate.ignore.authentication.startWith}")
-    private String ignorlUrls = "/oauth";
+    private String ignorlUrls = "/oauth,/open";
 
     @Autowired
     private AuthProvider authProvider;
