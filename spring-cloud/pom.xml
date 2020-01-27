@@ -12,10 +12,12 @@
 	<description>Demo project for Spring Cloud</description>
 
 	<modules>
+		<module>auth</module>
 		<module>center</module>
         <module>common</module>
 		<module>webapps</module>
-		<module>auth</module>
+		<module>gateway</module>
+		<module>monitor</module>
     </modules>
 
 	<properties>

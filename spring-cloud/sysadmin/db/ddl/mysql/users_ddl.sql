@@ -1,6 +1,6 @@
 --  用户表
 DROP TABLE IF EXISTS users;
-CREATE TABLE users
+CREATE TABLE user
 (
   id                      BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '用户id',
   username                VARCHAR(100) NOT NULL COMMENT '用户名',

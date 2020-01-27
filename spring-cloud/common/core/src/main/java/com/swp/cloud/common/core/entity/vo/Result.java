@@ -135,4 +135,12 @@ public class Result<T> {
         return Result.fail(exception.getErrorType(),data);
     }
 
+    public boolean isSuccess(){
+        return SUCCESSFUL_CODE.equals(this.code);
+    }
+
+    public boolean isFail(){
+        return !isSuccess();
+    }
+
 }

@@ -11,7 +11,7 @@ spring:
     name: authentication-server
 
   datasource:
-    url: jdbc:${DATASOURCE_DB:mysql}://${DATASOURCE_HOST:47.105.184.71}:${DATASOURCE_PORT:3306}/sc_admin?characterEncoding=utf8
+    url: jdbc:${DATASOURCE_DB:mysql}://${DATASOURCE_HOST:49.233.168.132}:${DATASOURCE_PORT:3306}/sc_admin?characterEncoding=utf8
     username: ${DATASOURCE_USERNAME:root}
     password: ${DATASOURCE_PASSWORD:Shi18740961619?}
     driver-class-name: com.mysql.jdbc.Driver
