@@ -12,4 +12,7 @@
     <artifactId>webapp-parent</artifactId>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>../../sysadmin</module>
+    </modules>
 </project>

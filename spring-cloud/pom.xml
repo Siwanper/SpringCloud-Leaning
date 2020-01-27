@@ -15,6 +15,7 @@
 		<module>center</module>
         <module>common</module>
 		<module>webapps</module>
+		<module>auth</module>
     </modules>
 
 	<properties>

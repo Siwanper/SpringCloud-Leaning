@@ -16,6 +16,11 @@
 	<name>auth</name>
 	<description>SpringCloud OAuth2 + JWT</description>
 
+	<modules>
+		<module>authorization-server</module>
+		<module>authentication-server</module>
+	</modules>
+
 	<dependencies>
 
 		<dependency>
