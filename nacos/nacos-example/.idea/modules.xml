@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/nacos-config/nacos-config.iml" filepath="$PROJECT_DIR$/nacos-config/nacos-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nacos-discovery/nacos-consumer/nacos-consumer.iml" filepath="$PROJECT_DIR$/nacos-discovery/nacos-consumer/nacos-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nacos-discovery/nacos-discovery.iml" filepath="$PROJECT_DIR$/nacos-discovery/nacos-discovery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nacos-example.iml" filepath="$PROJECT_DIR$/nacos-example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nacos-discovery/nacos-provider/nacos-provider.iml" filepath="$PROJECT_DIR$/nacos-discovery/nacos-provider/nacos-provider.iml" />
+    </modules>
+  </component>
+</project>
