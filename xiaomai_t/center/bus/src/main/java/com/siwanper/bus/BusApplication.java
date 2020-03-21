@@ -1,13 +1,13 @@
-package com.siwanper.cloud;
+package com.siwanper.bus;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CloudApplication {
+public class BusApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CloudApplication.class, args);
+		SpringApplication.run(BusApplication.class, args);
 	}
 
 }

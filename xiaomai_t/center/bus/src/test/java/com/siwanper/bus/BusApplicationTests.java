@@ -1,10 +1,10 @@
-package com.siwanper.cloud;
+package com.siwanper.bus;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CloudApplicationTests {
+class BusApplicationTests {
 
 	@Test
 	void contextLoads() {
