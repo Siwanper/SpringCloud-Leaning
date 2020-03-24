@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: bus
+    name: bus-server
 
   cloud:
     nacos:
