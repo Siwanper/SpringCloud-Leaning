@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: bus-server
+# 多环境配置 dev prod
+  profiles:
+    active: prod
 
   cloud:
     nacos:
@@ -12,4 +15,4 @@ spring:
 
       config:
         server-addr: ${REGISTER_HOST:localhost}:${REGISTER_PORT:8848}
-        file-extension: yml
+        file-extension: yaml

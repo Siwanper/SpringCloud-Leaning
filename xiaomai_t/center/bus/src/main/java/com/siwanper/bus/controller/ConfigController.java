@@ -24,9 +24,17 @@ public class ConfigController {
     @Value("${useLocalCache:false}")
     private boolean useLocalCache;
 
+    @Value(("${name:111}"))
+    private String name;
+
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public boolean get(){
         return useLocalCache;
+    }
+
+    @RequestMapping(value = "/name")
+    public String name(){
+        return name;
     }
 
 }
