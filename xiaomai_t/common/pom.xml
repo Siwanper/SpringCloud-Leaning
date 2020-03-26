@@ -11,6 +11,10 @@
     <name>common</name>
     <description>Common module for project ,include core web test</description>
 
+    <modules>
+        <module>core</module>
+    </modules>
+
     <dependencies>
         <dependency>
             <groupId>commons-lang</groupId>

@@ -1,13 +1,13 @@
 package com.siwanper.core;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class CoreApplicationTests {
+import org.junit.Test;
+
+public class CoreApplicationTests {
 
     @Test
-    void contextLoads() {
+    public void contextLoads() {
+
     }
 
 }
