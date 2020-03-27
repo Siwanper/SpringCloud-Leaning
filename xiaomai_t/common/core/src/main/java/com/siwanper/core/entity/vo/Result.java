@@ -1,8 +1,11 @@
 package com.siwanper.core.entity.vo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.siwanper.core.exception.BaseException;
 import com.siwanper.core.exception.ErrorType;
 import com.siwanper.core.exception.SystemErrorType;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 
 import java.time.Instant;
@@ -16,17 +19,23 @@ import java.time.ZonedDateTime;
  * @create 2020-03-26 11:15 AM
  */
 @Getter
+@ApiModel(value = "rest请求返回数据模型")
 public class Result<T> {
 
     private static final String SUCCESS_CODE = "000000";
     private static final String SUCCESS_MESG = "请求成功";
 
+    @ApiModelProperty(value = "请求结果code", required = true)
     private String code;
 
+    @ApiModelProperty(value = "请求结果描述")
     private String mesg;
 
+    @ApiModelProperty(value = "请求时间戳")
     private Instant time;
 
+    @ApiModelProperty(value = "请求返回的数据")
+    @JsonInclude(JsonInclude.Include.NON_NULL) //将该标记放在属性上，如果该属性为NULL则不参与序列化  //如果放在类上边,那对这个类的全部属性起作用  //Include.Include.ALWAYS 默认  //Include.NON_DEFAULT 属性为默认值不序列化  //Include.NON_EMPTY 属性为 空（“”） 或者为 NULL 都不序列化  //Include.NON_NULL 属性为NULL 不序列化
     private T data;
 
     public Result(){
