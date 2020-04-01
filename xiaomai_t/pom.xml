@@ -13,6 +13,9 @@
 
 	<modules>
 		<module>center</module>
+		<module>common</module>
+		<module>sysadmin</module>
+		<module>webapps</module>
 	</modules>
 
 	<properties>

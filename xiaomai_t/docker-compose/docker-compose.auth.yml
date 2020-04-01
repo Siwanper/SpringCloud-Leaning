@@ -1,0 +1,14 @@
+version: '3'
+services:
+  organization:
+    image: cike/organization:latest
+    container_name: sc-organization
+    restart: always
+    networks:
+      - sc_net
+    ports:
+      - 8010:8010
+    env_file:
+      - .env
+    environment:
+      TZ: Asia/Shanghai

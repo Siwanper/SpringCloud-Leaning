@@ -1,0 +1,63 @@
+spring:
+# RABBITMQ
+  rabbitmq:
+    host: ${RABBIT_MQ_HOST:localhost}
+    port: ${RABBIT_MQ_PORT:5672}
+    username: ${RABBIT_MQ_USER:guest}
+    password: ${RABBIT_MQ_PASSWORD:guest}
+# REIDS
+  redis:
+    host: ${REDIS_SERVER:localhost}
+    port: ${REDIS_PROT:6379}
+    lettuce:
+      pool:
+        max-active: 300
+# DATASOURCE
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:${DATASOURCE_DBTYPE:mysql}://${DATASOUCE_HOST:localhost}:${DATASOURCE_PORT:3306}/sc_admin?characterEncoding=UTF-8&useUnicode=true&useSSL=false
+    username: ${DATASOURCE_USERNAME:root}
+    password: ${DATASOURCE_PASSWORD:Shi18740961619?}
+
+  cloud:
+    bus:
+      trace:
+        enabled: true
+# 设置时区
+  jackson:
+    time-zone: GMT+8
+# 抛出异常
+  mvc:
+    throw-exception-if-no-handler-found: true
+# 设置文件下载和上传的大小
+  servlet:
+    multipart:
+      max-request-size: 2MB
+      max-file-size: 2MB
+
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: '*'
+
+logging:
+  level:
+    com.springboot.cloud: debug
+    java.sql.PreparedStatement: debug
+  path: logs/
+  file:
+    max-size: 1GB
+
+# mybatis-plus
+mybatis-plus:
+  configuration:
+#   驼峰
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+#     逻辑已删除 "Y"
+      logic-delete-value: "Y"
+#     逻辑未删除 "NO"
+      logic-not-delete-value: "NO"
+

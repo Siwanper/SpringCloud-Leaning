@@ -1,4 +1,5 @@
-package com.siwanper.web;
+package com.siwanper.organization;
+
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,10 +8,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-class WebApplicationTests {
+class OrganizationApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }
