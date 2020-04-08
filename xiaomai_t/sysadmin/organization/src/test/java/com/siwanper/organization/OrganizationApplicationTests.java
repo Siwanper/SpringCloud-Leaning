@@ -8,10 +8,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-class OrganizationApplicationTests {
+public class OrganizationApplicationTests {
 
 	@Test
-	void contextLoads() {
+	public void contextLoads() {
 
 	}
 

@@ -24,7 +24,7 @@ public class DateTest {
 
         long l = System.currentTimeMillis();
         System.out.println(l);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date(l);
         System.out.println(dateFormat.format(date));
 
@@ -56,7 +56,7 @@ public class DateTest {
     @Test
     public void zoneDateTime(){
         ZonedDateTime dateTime = ZonedDateTime.now();
-
+        System.out.println(dateTime.toInstant());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
         System.out.println(dateTime.format(formatter));
 

@@ -9,6 +9,7 @@ import org.apache.ibatis.reflection.MetaObject;
 
 import java.sql.Date;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * 描述:
@@ -23,14 +24,14 @@ public class PoMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
         this.setInsertFieldValByName("createdBy", getCurrentUsername(), metaObject);
-        this.setInsertFieldValByName("createdTime", Date.from(ZonedDateTime.now().toInstant()), metaObject);
+        this.setInsertFieldValByName("createdTime", ZonedDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")), metaObject);
         this.updateFill(metaObject);
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
         this.setUpdateFieldValByName("updateBy", getCurrentUsername(), metaObject);
-        this.setUpdateFieldValByName("updateTime", Date.from(ZonedDateTime.now().toInstant()), metaObject);
+        this.setUpdateFieldValByName("updateTime", ZonedDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")), metaObject);
     }
 
     private String getCurrentUsername() {

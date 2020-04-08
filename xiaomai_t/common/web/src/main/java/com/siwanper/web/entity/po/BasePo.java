@@ -19,7 +19,7 @@ import java.util.Date;
 public class BasePo implements Serializable {
 
     public static final String DEFAULT_USERNAME = "system";
-
+    //ID_WORKER_STR  字符串全局唯一ID
     @TableId(type = IdType.ID_WORKER_STR)
     private String id;
     @TableField(fill = FieldFill.INSERT)
@@ -27,8 +27,8 @@ public class BasePo implements Serializable {
     @TableField(fill = FieldFill.INSERT)
     private Date createdTime;
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    private String updateBy;
+    private String updatedBy;
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    private Date updateTime;
+    private Date updatedTime;
 
 }
