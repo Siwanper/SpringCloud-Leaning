@@ -20,7 +20,7 @@ public class UserContextHolder {
         this.threadLocal = new ThreadLocal<>();
     }
 
-    public static UserContextHolder getInstace(){
+    public static UserContextHolder getInstance(){
         return SingletonHolder.instance;
     }
 

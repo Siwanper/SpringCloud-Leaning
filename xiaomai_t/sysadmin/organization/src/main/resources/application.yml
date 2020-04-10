@@ -43,7 +43,7 @@ management:
 
 logging:
   level:
-    com.springboot.cloud: debug
+    com.siwanper.organization: debug
     java.sql.PreparedStatement: debug
   path: logs/
   file:
@@ -58,6 +58,6 @@ mybatis-plus:
     db-config:
 #     逻辑已删除 "Y"
       logic-delete-value: "Y"
-#     逻辑未删除 "NO"
-      logic-not-delete-value: "NO"
+#     逻辑未删除 "N"
+      logic-not-delete-value: "N"
 

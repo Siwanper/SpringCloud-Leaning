@@ -7,9 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.reflection.MetaObject;
 
-import java.sql.Date;
 import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 /**
  * 描述:
@@ -21,21 +20,21 @@ import java.time.format.DateTimeFormatter;
 @Slf4j
 public class PoMetaObjectHandler implements MetaObjectHandler {
 
+    private String getCurrentUsername() {
+        return StringUtils.defaultIfBlank(UserContextHolder.getInstance().getUsername(), BasePo.DEFAULT_USERNAME);
+    }
+
     @Override
     public void insertFill(MetaObject metaObject) {
         this.setInsertFieldValByName("createdBy", getCurrentUsername(), metaObject);
-        this.setInsertFieldValByName("createdTime", ZonedDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")), metaObject);
+        this.setInsertFieldValByName("createdTime", Date.from(ZonedDateTime.now().toInstant()), metaObject);
         this.updateFill(metaObject);
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
-        this.setUpdateFieldValByName("updateBy", getCurrentUsername(), metaObject);
-        this.setUpdateFieldValByName("updateTime", ZonedDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")), metaObject);
-    }
-
-    private String getCurrentUsername() {
-        return StringUtils.defaultIfBlank(UserContextHolder.getInstace().getUsername(), BasePo.DEFAULT_USERNAME);
+        this.setUpdateFieldValByName("updatedBy", getCurrentUsername(), metaObject);
+        this.setUpdateFieldValByName("updatedTime", Date.from(ZonedDateTime.now().toInstant()), metaObject);
     }
 
 }

@@ -40,18 +40,18 @@ public class UserInterception implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
         // 从网关获取并验证，如果验证成功则可信任 X_CLIENT_TOKEN_USER 的用户信息
         checkToken(request.getHeader(X_CLIENT_TOKEN));
-        String userInfo = StringUtils.defaultIfBlank(request.getHeader(X_CLIENT_TOKEN_USER),"");
-        UserContextHolder.getInstace().setContext(new ObjectMapper().readValue(userInfo, Map.class));
+        String userInfo = StringUtils.defaultIfBlank(request.getHeader(X_CLIENT_TOKEN_USER),"{}");
+        UserContextHolder.getInstance().setContext(new ObjectMapper().readValue(userInfo, Map.class));
         return true;
     }
 
     private void checkToken(String token){
-
+        log.debug("//TODO 校验token:{}", token);
     }
 
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
-        UserContextHolder.getInstace().clean();
+        UserContextHolder.getInstance().clean();
     }
 }

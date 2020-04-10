@@ -61,4 +61,9 @@ public class DateTest {
         System.out.println(dateTime.format(formatter));
 
     }
+
+    @Test
+    public void test(){
+        System.out.println(ZonedDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+    }
 }
