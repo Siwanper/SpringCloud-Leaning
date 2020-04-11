@@ -1,5 +1,9 @@
 package com.siwanper.organization.service.impl;
 
+import com.alicp.jetcache.anno.CacheInvalidate;
+import com.alicp.jetcache.anno.CacheType;
+import com.alicp.jetcache.anno.CacheUpdate;
+import com.alicp.jetcache.anno.Cached;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -47,6 +51,7 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
     }
 
     @Transactional
+    @CacheInvalidate(name = "user_", key = "#id")
     @Override
     public boolean delete(String id) {
         boolean result = this.removeById(id);
@@ -54,6 +59,7 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
     }
 
     @Transactional
+    @CacheInvalidate(name = "user_", key = "#user.id")
     @Override
     public boolean update(User user) {
         if (StringUtils.isNotBlank(user.getPassword())) {
@@ -63,13 +69,22 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
         return result;
     }
 
+    @Cached(name = "user_", key = "#id", cacheType = CacheType.BOTH)
     @Override
     public UserVo get(String id) {
-        log.info(id);
         User user = this.getById(id);
-        log.info("user : {}", user);
         if (Objects.isNull(user)) {
             throw new UserNotFoundException("用户不存在");
+        }
+        return new UserVo(user);
+    }
+
+    @Cached(name = "user::", key = "#uniqueId", cacheType = CacheType.BOTH)
+    @Override
+    public UserVo getByUniqueId(String uniqueId) {
+        User user = this.getOne(new QueryWrapper<User>().eq("username", uniqueId).or().eq("mobile", uniqueId));
+        if (Objects.isNull(user)){
+            throw new UserNotFoundException("该用户不存在");
         }
         return new UserVo(user);
     }

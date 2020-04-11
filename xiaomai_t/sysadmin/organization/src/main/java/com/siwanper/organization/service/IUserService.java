@@ -37,6 +37,13 @@ public interface IUserService {
     UserVo get(String id);
 
     /**
+     * 根据唯一标识获取用户（这里指的是用户名或者手机号）
+     * @param uniqueId
+     * @return
+     */
+    UserVo getByUniqueId(String uniqueId);
+
+    /**
      * 条件查询
      * @param page 分页
      * @param userQueryParam 条件

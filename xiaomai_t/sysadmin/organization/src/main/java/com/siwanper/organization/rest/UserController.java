@@ -74,6 +74,13 @@ public class UserController {
         return Result.success(user);
     }
 
+    @ApiOperation(value = "根据用户唯一标识获取用户（用户名或者电话）")
+    @ApiImplicitParam(name = "uniqueId", value = "用户名或者电话", required = true, paramType = "query", dataType = "string")
+    @GetMapping
+    public Result getUserByUniqueId(@RequestParam String uniqueId){
+        return Result.success(userService.getByUniqueId(uniqueId));
+    }
+
     @ApiOperation(value = "搜索用户")
     @ApiImplicitParam(name = "userQueryForm", value = "用户搜索表单信息", required = true , dataType = "UserQueryForm")
     @RequestMapping(value = "/search", method = RequestMethod.POST)

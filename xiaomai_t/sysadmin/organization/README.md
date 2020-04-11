@@ -21,6 +21,8 @@ param继承自BaseParam<T extends BasePo>，用户在service中条件查询。
 
 2、service 声明自 ServiceImpl<M extends BaseMapper<T>, T>
 
+常用方法
+save(User user), deleteById(String id), updateById(String id), getById(String id), getOne(wrapper), page(page, wrapper) 
 
 ###3、异常处理
 自定义枚举错误类型，声明自ErrorType （implements ErrorType）
@@ -33,9 +35,46 @@ param继承自BaseParam<T extends BasePo>，用户在service中条件查询。
 继承自WebMvcConfigurer，使用重写addInterceptor方法，添加拦截器。
 
 ###5、redis使用
-@EnableCaching
+配置 @EnableCaching
+
+JetCache是一个基于Java的缓存系统封装，提供统一的API和注解来简化缓存的使用。 JetCache提供了比SpringCache更加强大的注解，可以原生的支持TTL、两级缓存、分布式自动刷新，还提供了Cache接口用于手工缓存操作。当前有四个实现，RedisCache、TairCache（此部分未在github开源）、CaffeineCache(in memory)和一个简易的LinkedHashMapCache(in memory)，要添加新的实现也是非常简单的。
+
+[jetcache参考链接](https://blog.csdn.net/sinat_32366329/article/details/80260944)
+
+[官网](https://github.com/alibaba/jetcache)
 
 ###6、rabbitmq使用
 
 
 ###7、Swagger2的使用
+
+
+###8、日期统一处理
+1、数据库存储：
+```
+created_time DATETIME     NOT NULL DEFAULT now() COMMENT '创建时间',
+```
+
+2、Po中字段：
+```
+private Date createdTime;
+```
+
+3、form表单请求：
+```
+@ApiModelProperty(value = "查询的开始时间")
+@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+@Past(message = "查询的开始时间必须小于当前时间")
+private Date createdStartTime;
+```
+4、post请求参数
+```
+{
+	"page":"1",
+	"size":"10",
+	"username":"史万鹏1",
+	"createdStartTime":"2020-04-10 20:15:36",
+	"createdEndTime":"2020-04-10 22:15:36"
+}
+```
