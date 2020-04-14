@@ -13,7 +13,7 @@ import lombok.Getter;
 public enum  OrganizationErrorType implements ErrorType {
 
     USER_NOT_FOUND("030001", "用户不存在"),
-
+    ROLE_NOT_FOUND("030002", "角色不存在")
     ;
 
     private String code;
