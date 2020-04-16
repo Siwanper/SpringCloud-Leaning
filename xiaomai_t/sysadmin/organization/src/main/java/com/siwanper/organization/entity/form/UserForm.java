@@ -8,6 +8,7 @@ import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
+import java.util.Set;
 
 /**
  * 描述:
@@ -52,5 +53,8 @@ public class UserForm extends BaseForm<User>{
 
     @ApiModelProperty(value = "用户是否被锁定， true未锁定")
     private Boolean accountNonLocked = true;
+
+    @ApiModelProperty(value = "用户所拥有的角色")
+    private Set<String> roleIds;
 
 }

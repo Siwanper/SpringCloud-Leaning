@@ -1,5 +1,8 @@
 package com.siwanper.organization.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.siwanper.organization.entity.param.RoleQueryParam;
 import com.siwanper.organization.entity.po.Role;
 
 import java.util.List;
@@ -49,5 +52,20 @@ public interface IRoleService {
      * @return
      */
     List<Role> getAll();
+
+    /**
+     * 获取用户的所有角色
+     * @param userId 用户Id
+     * @return
+     */
+    List<Role> getByUserId(String userId);
+
+    /**
+     * 条件查询角色
+     * @param page 页数
+     * @param roleQueryParam 查询条件
+     * @return
+     */
+    IPage<Role> query(Page page, RoleQueryParam roleQueryParam);
 
 }

@@ -13,9 +13,11 @@ import com.siwanper.organization.entity.param.UserQueryParam;
 import com.siwanper.organization.entity.po.User;
 import com.siwanper.organization.entity.vo.UserVo;
 import com.siwanper.organization.exception.UserNotFoundException;
+import com.siwanper.organization.service.IUserRoleService;
 import com.siwanper.organization.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -35,6 +37,9 @@ import java.util.Objects;
 @Slf4j
 public class UserService extends ServiceImpl<UserMapper, User> implements IUserService {
 
+    @Autowired
+    private IUserRoleService userRoleService;
+
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -47,6 +52,8 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
             user.setPassword(passwordEncoder().encode(user.getPassword()));
         }
         boolean result = this.save(user);
+        // 添加角色
+        userRoleService.saveBatch(user.getId(), user.getRoleIds());
         return result;
     }
 
@@ -54,8 +61,8 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
     @CacheInvalidate(name = "user_", key = "#id")
     @Override
     public boolean delete(String id) {
-        boolean result = this.removeById(id);
-        return result;
+        this.removeById(id);
+        return userRoleService.deleteByUserId(id);
     }
 
     @Transactional
@@ -66,6 +73,7 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
             user.setPassword(passwordEncoder().encode(user.getPassword()));
         }
         boolean result = this.updateById(user);
+        userRoleService.saveBatch(user.getId(), user.getRoleIds());
         return result;
     }
 
@@ -76,6 +84,7 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
         if (Objects.isNull(user)) {
             throw new UserNotFoundException("用户不存在");
         }
+        user.setRoleIds(userRoleService.queryRoleIdsByUserId(id));
         return new UserVo(user);
     }
 
@@ -86,6 +95,7 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
         if (Objects.isNull(user)){
             throw new UserNotFoundException("该用户不存在");
         }
+        user.setRoleIds(userRoleService.queryRoleIdsByUserId(user.getId()));
         return new UserVo(user);
     }
 

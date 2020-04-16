@@ -7,6 +7,8 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
+import java.util.Set;
+
 /**
  * 描述:
  *
@@ -46,4 +48,6 @@ public class UserUpdateForm extends BaseForm<User> {
     @ApiModelProperty(value = "用户是否被锁定， true未锁定")
     private Boolean accountNonLocked = true;
 
+    @ApiModelProperty(value = "用户所拥有的角色")
+    private Set<String> roleIds;
 }

@@ -2,7 +2,9 @@ package com.siwanper.organization.rest;
 
 import com.siwanper.core.entity.vo.Result;
 import com.siwanper.organization.entity.form.RoleForm;
+import com.siwanper.organization.entity.form.RoleQueryForm;
 import com.siwanper.organization.entity.form.RoleUpdateForm;
+import com.siwanper.organization.entity.param.RoleQueryParam;
 import com.siwanper.organization.entity.po.Role;
 import com.siwanper.organization.service.IRoleService;
 import io.swagger.annotations.Api;
@@ -65,6 +67,19 @@ public class RoleController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Result getRole(@PathVariable String id){
         return Result.success(roleService.get(id));
+    }
+
+    @ApiOperation(value = "查询所有角色")
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    public Result getAllRole(){
+        return Result.success(roleService.getAll());
+    }
+
+    @ApiOperation(value = "条件查询角色")
+    @ApiImplicitParam(name = "roleQueryForm", value = "角色查询表单", required = true, dataType = "RoleQueryForm")
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    public Result search(@Valid @RequestBody RoleQueryForm roleQueryForm){
+        return Result.success(roleService.query(roleQueryForm.getPage(), roleQueryForm.toParam(RoleQueryParam.class)));
     }
 
 }

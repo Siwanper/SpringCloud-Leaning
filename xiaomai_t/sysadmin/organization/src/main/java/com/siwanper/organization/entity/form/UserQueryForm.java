@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.siwanper.organization.entity.param.UserQueryParam;
 import com.siwanper.web.entity.form.BaseQueryForm;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -17,7 +18,7 @@ import java.util.Date;
  * @outhor ios
  * @create 2020-04-10 3:01 PM
  */
-@Api
+@ApiModel
 @Data
 public class UserQueryForm extends BaseQueryForm<UserQueryParam> {
 

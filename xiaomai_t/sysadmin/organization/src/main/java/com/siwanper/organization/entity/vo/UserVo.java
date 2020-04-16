@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.BeanUtils;
 
+import java.util.Set;
+
 /**
  * 描述:
  *
@@ -30,5 +32,6 @@ public class UserVo extends BaseVo<User> {
     private Boolean accountNonExpired;
     private Boolean credentialsNonExpired;
     private Boolean accountNonLocked;
+    private Set<String> roleIds;
 
 }
