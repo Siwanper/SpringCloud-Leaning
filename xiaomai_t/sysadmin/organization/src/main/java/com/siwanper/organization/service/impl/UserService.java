@@ -88,7 +88,7 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
         return new UserVo(user);
     }
 
-    @Cached(name = "user::", key = "#uniqueId", cacheType = CacheType.BOTH)
+    @Cached(name = "user_", key = "#uniqueId", cacheType = CacheType.BOTH)
     @Override
     public UserVo getByUniqueId(String uniqueId) {
         User user = this.getOne(new QueryWrapper<User>().eq("username", uniqueId).or().eq("mobile", uniqueId));

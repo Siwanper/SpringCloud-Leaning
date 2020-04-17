@@ -1,10 +1,13 @@
 package com.siwanper.organization.entity.po;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.siwanper.web.entity.po.BasePo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Set;
 
 /**
  * DESCRIPTION：   角色
@@ -25,5 +28,7 @@ public class Role extends BasePo {
     private String code;
     private String name;
     private String description;
+    @TableField(exist = false)
+    private Set<String> resourceIds;
 
 }

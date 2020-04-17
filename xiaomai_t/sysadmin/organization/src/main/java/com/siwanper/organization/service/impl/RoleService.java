@@ -38,24 +38,33 @@ public class RoleService extends ServiceImpl<RoleMapper, Role> implements IRoleS
     @Autowired
     private UserRoleService userRoleService;
 
+    @Autowired
+    private RoleResourceService roleResourceService;
+
     @Transactional
     @Override
     public boolean add(Role role) {
-        return this.save(role);
+        boolean result = this.save(role);
+        roleResourceService.saveBatch(role.getId(), role.getResourceIds());
+        return result;
     }
 
     @Transactional
     @Override
     @CacheInvalidate(name = "role_", key = "#id")
     public boolean delete(String id) {
-        return this.removeById(id);
+        boolean result = this.removeById(id);
+        roleResourceService.deleteByRoleId(id);
+        return result;
     }
 
     @Transactional
     @Override
     @CacheInvalidate(name = "role_", key = "#role.id")
     public boolean update(Role role) {
-        return this.updateById(role);
+        boolean result = this.updateById(role);
+        roleResourceService.saveBatch(role.getId(), role.getResourceIds());
+        return result;
     }
 
     @Override
@@ -65,6 +74,7 @@ public class RoleService extends ServiceImpl<RoleMapper, Role> implements IRoleS
         if (Objects.isNull(role)) {
             throw new RoleNotFoundException("角色不存在");
         }
+        role.setResourceIds(roleResourceService.queryByRoleId(id));
         return role;
     }
 

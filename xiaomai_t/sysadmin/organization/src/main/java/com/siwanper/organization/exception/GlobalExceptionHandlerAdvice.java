@@ -30,4 +30,10 @@ public class GlobalExceptionHandlerAdvice extends DefaultGlobalExceptionHandlerA
         return Result.fail(ex);
     }
 
+    @ExceptionHandler(value = {ResourceNotFoundException.class})
+    public Result resourceNotFound(ResourceNotFoundException ex){
+        log.error(ex.getMessage());
+        return Result.fail(ex);
+    }
+
 }

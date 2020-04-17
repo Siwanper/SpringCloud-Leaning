@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 
 import javax.print.DocFlavor;
 import javax.validation.constraints.NotBlank;
+import java.util.Set;
 
 /**
  * DESCRIPTION：   添加角色表单信息
@@ -38,5 +39,8 @@ public class RoleForm extends BaseForm<Role> {
 
     @ApiModelProperty(value = "角色描述")
     private String description;
+
+    @ApiModelProperty(value = "角色所拥有的资源")
+    private Set<String> resourceIds;
 
 }

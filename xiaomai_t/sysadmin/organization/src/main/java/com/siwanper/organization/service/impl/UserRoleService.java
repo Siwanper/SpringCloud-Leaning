@@ -7,6 +7,7 @@ import com.siwanper.organization.entity.po.UserRole;
 import com.siwanper.organization.service.IUserRoleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
@@ -24,6 +25,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class UserRoleService extends ServiceImpl<UserRoleMapper, UserRole> implements IUserRoleService {
 
+    @Transactional
     @Override
     public boolean saveBatch(String userId, Set<String> roles) {
         if (CollectionUtils.isEmpty(roles)) {
@@ -35,6 +37,7 @@ public class UserRoleService extends ServiceImpl<UserRoleMapper, UserRole> imple
         return this.saveBatch(userRoles);
     }
 
+    @Transactional
     @Override
     public boolean deleteByUserId(String userId) {
         QueryWrapper queryWrapper = new QueryWrapper();
@@ -42,6 +45,7 @@ public class UserRoleService extends ServiceImpl<UserRoleMapper, UserRole> imple
         return this.remove(queryWrapper);
     }
 
+    @Transactional
     @Override
     public boolean deleteByRoleId(String roleId) {
         QueryWrapper queryWrapper = new QueryWrapper();
