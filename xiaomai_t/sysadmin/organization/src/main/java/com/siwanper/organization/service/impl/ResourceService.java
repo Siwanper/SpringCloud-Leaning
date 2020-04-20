@@ -13,11 +13,13 @@ import com.siwanper.organization.entity.po.Resource;
 import com.siwanper.organization.entity.po.RoleResource;
 import com.siwanper.organization.entity.vo.UserVo;
 import com.siwanper.organization.exception.ResourceNotFoundException;
+import com.siwanper.organization.exception.RoleNotFoundException;
 import com.siwanper.organization.service.IResourceService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 import java.util.Objects;
@@ -92,11 +94,14 @@ public class ResourceService extends ServiceImpl<ResourceMapper, Resource> imple
 
     @Override
     public List<Resource> queryByUserId(String userId) {
-
         Set<String> roleIds = userRoleService.queryRoleIdsByUserId(userId);
-
+        if (CollectionUtils.isEmpty(roleIds)) {
+            throw new RoleNotFoundException("此用户暂无角色信息");
+        }
         Set<String> resourceIds = roleResourceService.queryByRoleIds(roleIds);
-
+        if (CollectionUtils.isEmpty(resourceIds)) {
+            throw new ResourceNotFoundException("此用户暂无资源信息");
+        }
         return (List<Resource>) this.listByIds(resourceIds);
     }
 }

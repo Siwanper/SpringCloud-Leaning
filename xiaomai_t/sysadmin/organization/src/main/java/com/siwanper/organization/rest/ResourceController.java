@@ -79,7 +79,7 @@ public class ResourceController {
 
     @ApiOperation(value = "根据用户Id查询资源")
     @ApiImplicitParam(name = "userId", value = "用户Id", required = true, paramType = "path", dataType = "string")
-    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/{userId}", method = RequestMethod.GET)
     public Result queryByUserId(@PathVariable String userId){
         return Result.success(resourceService.queryByUserId(userId));
     }
