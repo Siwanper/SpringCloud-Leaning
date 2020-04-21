@@ -69,6 +69,13 @@ public class RoleController {
         return Result.success(roleService.get(id));
     }
 
+    @ApiOperation(value = "根据用户Id查询")
+    @ApiImplicitParam(name = "userId", value = "用户ID", required = true, paramType = "path", dataType = "string")
+    @RequestMapping(value = "/user/{userId}", method = RequestMethod.GET)
+    public Result getRolesByUserId(@PathVariable String userId){
+        return Result.success(roleService.getByUserId(userId));
+    }
+
     @ApiOperation(value = "查询所有角色")
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public Result getAllRole(){

@@ -12,6 +12,7 @@
 	<description>Spring Cloud Test</description>
 
 	<modules>
+		<module>auth</module>
 		<module>center</module>
 		<module>common</module>
 		<module>sysadmin</module>
