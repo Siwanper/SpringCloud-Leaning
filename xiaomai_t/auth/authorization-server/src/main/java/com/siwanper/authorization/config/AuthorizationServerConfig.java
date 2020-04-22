@@ -1,7 +1,9 @@
 package com.siwanper.authorization.config;
 
+import com.siwanper.authorization.oauth2.enhancer.CustomTokenEnhancer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,11 +18,13 @@ import org.springframework.security.oauth2.provider.approval.ApprovalStore;
 import org.springframework.security.oauth2.provider.approval.JdbcApprovalStore;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeServices;
+import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 import javax.sql.DataSource;
+import java.util.Arrays;
 
 /**
  * 描述:
@@ -37,8 +41,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     private DataSource dataSource;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     @Qualifier(value = "authenticationManagerBean")
     @Autowired
@@ -47,6 +49,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     @Qualifier(value = "customUserDetailsService")
     private UserDetailsService userDetailsService;
+
+    @Value(value = "${spring.security.oauth2.jwt.signingKey}")
+    private String signingKey;
 
     /**
      * 使用数据库维护客户端信息
@@ -60,19 +65,19 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        security.passwordEncoder(passwordEncoder)
-                .allowFormAuthenticationForClients()
+        security.allowFormAuthenticationForClients()
                 .tokenKeyAccess("isAuthenticated()")
                 .checkTokenAccess("permitAll()");
     }
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints.authenticationManager(authenticationManager)
-                .userDetailsService(userDetailsService)
-                .tokenStore(tokenStore())
+        endpoints.tokenStore(tokenStore())
+                .authorizationCodeServices(authorizationCodeServices())
                 .approvalStore(approvalStore())
-                .authorizationCodeServices(authorizationCodeServices());
+                .tokenEnhancer(tokenEnhancerChain())
+                .authenticationManager(authenticationManager)
+                .userDetailsService(userDetailsService);
     }
 
     /**
@@ -80,7 +85,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
      * @return
      */
     @Bean
-    public TokenStore tokenStore(){
+    public JwtTokenStore tokenStore(){
         return new JwtTokenStore(tokenConverter());
     }
 
@@ -95,7 +100,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Bean
     public JwtAccessTokenConverter tokenConverter(){
         JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();
-        tokenConverter.setSigningKey("123456");
+        tokenConverter.setSigningKey(signingKey);
         return tokenConverter;
     }
 
@@ -113,9 +118,23 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
      * 授权码持久化
      * @return
      */
+    @Bean
     public AuthorizationCodeServices authorizationCodeServices(){
         return new JdbcAuthorizationCodeServices(dataSource);
     }
+
+    /**
+     * 自定义token
+     * @return
+     */
+    @Bean
+    public TokenEnhancerChain tokenEnhancerChain(){
+        TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
+        tokenEnhancerChain.setTokenEnhancers(Arrays.asList(new CustomTokenEnhancer(), tokenConverter()));
+        return tokenEnhancerChain;
+    }
+
+
 
 
 }

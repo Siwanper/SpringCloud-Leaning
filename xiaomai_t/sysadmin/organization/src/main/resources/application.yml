@@ -7,7 +7,7 @@ spring:
     password: ${RABBIT_MQ_PASSWORD:guest}
 # REIDS
   redis:
-    host: ${REDIS_SERVER:localhost}
+    host: ${REDIS_SERVER:49.233.168.132}
     port: ${REDIS_PROT:6379}
     lettuce:
       pool:

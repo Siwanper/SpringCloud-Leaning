@@ -4,6 +4,7 @@ import com.siwanper.authorization.entity.po.Role;
 import com.siwanper.authorization.entity.po.User;
 import com.siwanper.authorization.service.IRoleService;
 import com.siwanper.authorization.service.IUserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -22,6 +23,7 @@ import java.util.stream.Collectors;
  * @outhor ios
  * @create 2020-04-21 4:34 PM
  */
+@Slf4j
 @Service(value = "customUserDetailsService")
 public class CustomUserDetailsService implements UserDetailsService{
 
@@ -34,7 +36,7 @@ public class CustomUserDetailsService implements UserDetailsService{
     @Override
     public UserDetails loadUserByUsername(String uniqueId) throws UsernameNotFoundException {
         User user = userService.getUserByUniqueId(uniqueId);
-
+        log.info("load user by username : {}", user.getUsername());
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
                 user.getPassword(),
@@ -47,6 +49,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 
     private List<GrantedAuthority> authorities(String userId){
         List<Role> roles = roleService.getRolesByUserId(userId);
+        log.info("userId: {}, roles: {}", userId, roles);
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getCode())).collect(Collectors.toList());
     }
 
