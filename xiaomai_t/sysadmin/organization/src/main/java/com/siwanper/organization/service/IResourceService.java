@@ -53,9 +53,9 @@ public interface IResourceService {
 
     /**
      * 查询用户所拥有的所有资源
-     * @param userId
+     * @param username
      * @return
      */
-    List<Resource> queryByUserId(String userId);
+    List<Resource> queryByUsername(String username);
 
 }

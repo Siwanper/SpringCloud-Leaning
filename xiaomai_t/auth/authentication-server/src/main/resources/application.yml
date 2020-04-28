@@ -1,0 +1,80 @@
+spring:
+
+  rabbitmq:
+    host: ${RABBIT_MQ_HOST:localhost}
+    port: ${RABBIT_MQ_PORT:5672}
+    username: ${RABBIT_MQ_USER:guest}
+    password: ${RABBIT_MQ_PASSWORD:guest}
+
+  redis:
+    host: ${REDIS_SERVER:49.233.168.132}
+    port: ${REDIS_PROT:6379}
+    lettuce:
+      pool:
+        max-active: 20
+
+# DATASOURCE
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:${DATASOURCE_DBTYPE:mysql}://${DATASOUCE_HOST:49.233.168.132}:${DATASOURCE_PORT:3306}/sc_auth?characterEncoding=UTF-8&useUnicode=true&useSSL=false
+    username: ${DATASOURCE_USERNAME:root}
+    password: ${DATASOURCE_PASSWORD:Shi18740961619?}
+
+  mvc:
+    throw-exception-if-no-handler-found: true
+
+  security:
+    oauth2:
+      jwt:
+        signingKey: 123456
+
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+
+jetcache:
+  #统计间隔，0表示不统计
+  statIntervalMinutes: 15
+  #areaName加在cacheName中，areaName也出现在key前缀中
+  areaInCacheName: false
+  #指定的包名前缀被截掉
+  hidePackages: com.siwanper.authentication
+  #本地缓存
+  local:
+    #area
+    # 默认2小时本地缓存
+    default:
+      type: caffeine
+      keyConvertor: fastjson
+      #以毫秒为单位指定超时时间的全局配置
+      expireAfterWriteInMillis: 3600000
+      #多长时间没有访问，就让缓存失效
+      expireAfterAccessInMillis: 1800000
+
+
+logging:
+  level:
+    org.springframework.web: debug
+    org.springframework.security: debug
+    java.sql.PreparedStatement: debug
+    org.apache.ibatis: debug
+  path: logs/
+  file:
+    max-size: 1GB
+
+feign:
+  sentinel:
+    enabled: true
+  okhttp:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true

@@ -18,10 +18,40 @@
 
 	<modules>
 		<module>authorization-server</module>
+		<module>authentication-server</module>
 	</modules>
 
 	<dependencies>
-
+		<dependency>
+			<groupId>com.siwanper</groupId>
+			<artifactId>web</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- Oauth2 -->
+		<!--对spring-cloud-starter-security、spring-security-oauth2、spring-security-jwt这3个依赖的整合-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-oauth2</artifactId>
+		</dependency>
+		<!-- 服务间调用 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+		<!-- 数据库 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>1.1.16</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
 	</dependencies>
 
 </project>

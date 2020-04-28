@@ -77,11 +77,11 @@ public class ResourceController {
         return Result.success(resourceService.query(resourceQueryForm.getPage(), resourceQueryForm.toParam(ResourceQueryParam.class)));
     }
 
-    @ApiOperation(value = "根据用户Id查询资源")
-    @ApiImplicitParam(name = "userId", value = "用户Id", required = true, paramType = "path", dataType = "string")
-    @RequestMapping(value = "/user/{userId}", method = RequestMethod.GET)
-    public Result queryByUserId(@PathVariable String userId){
-        return Result.success(resourceService.queryByUserId(userId));
+    @ApiOperation(value = "根据用户名查询资源")
+    @ApiImplicitParam(name = "username", value = "用户名", required = true, paramType = "path", dataType = "string")
+    @RequestMapping(value = "/user/{username}", method = RequestMethod.GET)
+    public Result queryByUsername(@PathVariable String username){
+        return Result.success(resourceService.queryByUsername(username));
     }
 
 }
