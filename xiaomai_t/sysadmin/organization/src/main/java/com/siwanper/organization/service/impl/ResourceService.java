@@ -7,11 +7,13 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.siwanper.organization.config.BusConfig;
 import com.siwanper.organization.dao.ResourceMapper;
 import com.siwanper.organization.entity.param.ResourceQueryParam;
 import com.siwanper.organization.entity.po.Resource;
 import com.siwanper.organization.entity.po.RoleResource;
 import com.siwanper.organization.entity.vo.UserVo;
+import com.siwanper.organization.event.EventSender;
 import com.siwanper.organization.exception.ResourceNotFoundException;
 import com.siwanper.organization.exception.RoleNotFoundException;
 import com.siwanper.organization.exception.UserNotFoundException;
@@ -46,9 +48,14 @@ public class ResourceService extends ServiceImpl<ResourceMapper, Resource> imple
     @Autowired
     private RoleResourceService roleResourceService;
 
+    @Autowired
+    private EventSender eventSender;
+
     @Transactional
     @Override
     public boolean add(Resource resource) {
+        // 将新添加的资源，发送给authentication
+        eventSender.send(BusConfig.ROUTING_KEY_NAME, resource);
         return this.save(resource);
     }
 

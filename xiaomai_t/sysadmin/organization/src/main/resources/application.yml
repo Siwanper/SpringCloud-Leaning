@@ -1,4 +1,9 @@
 spring:
+  cloud:
+# 消息追踪
+    bus:
+      trace:
+        enabled: true
 # RABBITMQ
   rabbitmq:
     host: ${RABBIT_MQ_HOST:localhost}
@@ -19,10 +24,6 @@ spring:
     username: ${DATASOURCE_USERNAME:root}
     password: ${DATASOURCE_PASSWORD:Shi18740961619?}
 
-  cloud:
-    bus:
-      trace:
-        enabled: true
 # 设置时区
   jackson:
     time-zone: GMT+8

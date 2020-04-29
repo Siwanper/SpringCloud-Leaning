@@ -2,7 +2,7 @@ package com.siwanper.authentication.service.impl;
 
 import com.alicp.jetcache.anno.CacheType;
 import com.alicp.jetcache.anno.Cached;
-import com.siwanper.authentication.entity.po.Resource;
+import com.siwanper.organization.entity.po.Resource;
 import com.siwanper.authentication.provider.ResourceProvider;
 import com.siwanper.authentication.service.IResourceService;
 import com.siwanper.authentication.service.NewMvcRequestMatcher;

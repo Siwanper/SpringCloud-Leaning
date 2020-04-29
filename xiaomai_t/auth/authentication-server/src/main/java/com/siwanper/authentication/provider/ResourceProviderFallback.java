@@ -1,7 +1,7 @@
 package com.siwanper.authentication.provider;
 
 import com.google.common.collect.Sets;
-import com.siwanper.authentication.entity.po.Resource;
+import com.siwanper.organization.entity.po.Resource;
 import com.siwanper.core.entity.vo.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

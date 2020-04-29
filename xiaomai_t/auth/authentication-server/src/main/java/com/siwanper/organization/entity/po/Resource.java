@@ -1,4 +1,4 @@
-package com.siwanper.authentication.entity.po;
+package com.siwanper.organization.entity.po;
 
 import com.siwanper.web.entity.po.BasePo;
 import lombok.Data;

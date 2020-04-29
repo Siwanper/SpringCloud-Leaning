@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 描述:
+ * 描述: 签权失败，统一返回
  *
  * @outhor ios
  * @create 2020-04-28 4:26 PM
  */
 @RestController
-@RequestMapping(value = "/auth")
+@RequestMapping(value = "/oauth")
 public class AuthenticationController {
 
     @Autowired

@@ -1,6 +1,6 @@
 package com.siwanper.authentication.service;
 
-import com.siwanper.authentication.entity.po.Resource;
+import com.siwanper.organization.entity.po.Resource;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 

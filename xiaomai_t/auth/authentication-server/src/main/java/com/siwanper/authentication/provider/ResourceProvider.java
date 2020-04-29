@@ -1,6 +1,6 @@
 package com.siwanper.authentication.provider;
 
-import com.siwanper.authentication.entity.po.Resource;
+import com.siwanper.organization.entity.po.Resource;
 import com.siwanper.core.entity.vo.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,6 +1,6 @@
 package com.siwanper.authentication.service.impl;
 
-import com.siwanper.authentication.entity.po.Resource;
+import com.siwanper.organization.entity.po.Resource;
 import com.siwanper.authentication.service.IAuthenticationService;
 import com.siwanper.authentication.service.IResourceService;
 import lombok.extern.slf4j.Slf4j;
