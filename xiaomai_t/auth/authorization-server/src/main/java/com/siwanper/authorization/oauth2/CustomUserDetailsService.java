@@ -47,6 +47,7 @@ public class CustomUserDetailsService implements UserDetailsService{
                 this.authorities(user.getId()));
     }
 
+    // 用户所拥有的角色，作为权限判断的依据。
     private List<GrantedAuthority> authorities(String userId){
         List<Role> roles = roleService.getRolesByUserId(userId);
         log.info("userId: {}, roles: {}", userId, roles);

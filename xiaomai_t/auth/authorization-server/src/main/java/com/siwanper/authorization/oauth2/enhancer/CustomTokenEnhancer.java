@@ -9,7 +9,7 @@ import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import java.util.Map;
 
 /**
- * 描述:
+ * 描述: JWT 信息加强。添加额外信息。
  *
  * @outhor ios
  * @create 2020-04-22 2:06 PM

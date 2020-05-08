@@ -65,6 +65,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+        // 允许前端以表单形式提交。
         security.allowFormAuthenticationForClients()
                 .tokenKeyAccess("isAuthenticated()")
                 .checkTokenAccess("permitAll()");

@@ -71,7 +71,7 @@ public class AuthService implements IAuthService {
             jwtToken = StringUtils.substring(jwtToken, BEARER.length());
         }
         return Jwts.parser()
-                .setSigningKey(signingKey)
+                .setSigningKey(signingKey.getBytes())
                 .parseClaimsJws(jwtToken);
     }
 

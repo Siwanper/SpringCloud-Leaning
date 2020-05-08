@@ -8,7 +8,7 @@ import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 import java.util.Objects;
 
 /**
- * 描述:
+ * 描述: 请求对比器，当请求url和method一样，则判断请求相同。
  *
  * @outhor ios
  * @create 2020-04-28 3:04 PM

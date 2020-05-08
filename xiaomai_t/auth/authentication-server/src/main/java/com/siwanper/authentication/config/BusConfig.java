@@ -51,7 +51,16 @@ public class BusConfig {
         return BindingBuilder.bind(queue).to(exchange).with(ROUTING_KEY_NAME);
     }
 
-
+    /**
+     * 消息监听容器
+     *
+     * 绑定指定队列和消息适配器
+     *
+     * @param connectionFactory
+     * @param messageListenerAdapter
+     * @param queue
+     * @return
+     */
     @Bean
     public SimpleMessageListenerContainer messageListenerContainer(ConnectionFactory connectionFactory, MessageListenerAdapter messageListenerAdapter, Queue queue){
         SimpleMessageListenerContainer simpleMessageListenerContainer = new SimpleMessageListenerContainer(connectionFactory);
@@ -60,6 +69,16 @@ public class BusConfig {
         return simpleMessageListenerContainer;
     }
 
+    /**
+     * 消息适配器
+     *
+     * 设置消息接受代理，默认代理方法为 handleMessage
+     * 设置消息接受数据类型。
+     *
+     * @param receiver 接受代理
+     * @param messageConverter
+     * @return
+     */
     @Bean
     public MessageListenerAdapter messageListenerAdapter(EventReceiver receiver, MessageConverter messageConverter){
         return new MessageListenerAdapter(receiver, messageConverter);
