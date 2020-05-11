@@ -28,9 +28,6 @@ services:
       - 15672:15672
     env_file: .env
 
-
-
-
 networks:
   sc-net:
     external: false

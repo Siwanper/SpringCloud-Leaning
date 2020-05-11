@@ -6,7 +6,7 @@ services:
     container_name: sc-authorization-server
     restart: always
     networks:
-      - sc_net
+      - sc-net
     ports:
       - 8000:8000
     env_file:
@@ -22,7 +22,7 @@ services:
       container_name: sc-authentication-server
       restart: always
       networks:
-        - sc_net
+        - sc-net
       ports:
         - 8001:8001
       env_file:
@@ -38,7 +38,7 @@ services:
     container_name: sc-organization
     restart: always
     networks:
-      - sc_net
+      - sc-net
     ports:
       - 8010:8010
     env_file:

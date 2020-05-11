@@ -17,6 +17,7 @@
 		<module>common</module>
 		<module>sysadmin</module>
 		<module>webapps</module>
+		<module>gateway</module>
 	</modules>
 
 	<properties>
