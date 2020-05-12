@@ -37,10 +37,16 @@ public interface IGatewayRouteService {
     GatewayRoute get(String id);
 
     /**
-     *
+     * 根据条件查询
      * @param queryParam
      * @return
      */
     List<GatewayRouteVo> query(GatewayRouteQueryParam queryParam);
+
+    /**
+     * 加载所有的路由网关配置到redis
+     * @return
+     */
+    boolean overload();
 
 }
