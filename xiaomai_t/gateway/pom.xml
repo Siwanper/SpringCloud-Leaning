@@ -15,6 +15,10 @@
 	<name>gateway</name>
 	<description>Gateway System</description>
 
+	<modules>
+		<module>gateway-admin</module>
+	</modules>
+
 	<dependencies>
 
 	</dependencies>

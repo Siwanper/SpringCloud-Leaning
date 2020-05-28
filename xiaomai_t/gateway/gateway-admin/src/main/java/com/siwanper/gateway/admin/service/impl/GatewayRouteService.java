@@ -1,5 +1,6 @@
 package com.siwanper.gateway.admin.service.impl;
 
+import com.alicp.jetcache.Cache;
 import com.alicp.jetcache.anno.CacheType;
 import com.alicp.jetcache.anno.CreateCache;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -22,7 +23,6 @@ import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.net.URI;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -39,7 +39,7 @@ public class GatewayRouteService extends ServiceImpl<GatewayRouteMapper, Gateway
     private static final String GATEWAY_ROUTES = "gateway_routes::";
 
     @CreateCache(name = GATEWAY_ROUTES, cacheType = CacheType.REMOTE)
-    private Map<String, RouteDefinition> gatewayRouteCache;
+    private Cache<String, RouteDefinition> gatewayRouteCache;
 
     @Override
     public boolean add(GatewayRoute gatewayRoute) {
@@ -80,7 +80,7 @@ public class GatewayRouteService extends ServiceImpl<GatewayRouteMapper, Gateway
         list.forEach(gatewayRoute ->
             gatewayRouteCache.put(gatewayRoute.getRouteId(), gatewayRouteToRouteDefinition(gatewayRoute))
         );
-        log.debug("全剧初始化路由配置成功 : {}", gatewayRouteCache);
+        log.debug("全剧初始化路由配置成功 : {}", gatewayRouteCache.toString());
         return false;
     }
 

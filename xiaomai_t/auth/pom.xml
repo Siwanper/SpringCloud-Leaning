@@ -19,6 +19,7 @@
 	<modules>
 		<module>authorization-server</module>
 		<module>authentication-server</module>
+		<module>authentication-client</module>
 	</modules>
 
 	<dependencies>
