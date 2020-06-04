@@ -7,9 +7,22 @@ import java.util.Collection;
 public interface IRouteService {
 
     /**
-     * 加载路由
+     * 从redis中加载路由，并保存到内存中
      * @return
      */
     Collection<RouteDefinition> getRouteDefinitions();
+
+    /**
+     * 添加路由
+     * @param routeDefinition
+     */
+    void save(RouteDefinition routeDefinition);
+
+    /**
+     * 删除路由
+     * @param routeId
+     */
+    void delete(String routeId);
+
 
 }

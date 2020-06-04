@@ -12,7 +12,7 @@ spring:
     password: ${RABBIT_MQ_PASSWORD:guest}
 # REIDS
   redis:
-    host: ${REDIS_SERVER:49.233.168.132}
+    host: ${REDIS_SERVER:localhost}
     port: ${REDIS_PROT:6379}
     lettuce:
       pool:
@@ -48,6 +48,7 @@ jetcache:
     #area
     # 默认2小时本地缓存
     default:
+      # 缓存类型，tair、redis为当前支持的远程缓存，linkedhashmap、caffeine为当前支持的本地缓存类型
       type: caffeine
       keyConvertor: fastjson
       #以毫秒为单位指定超时时间的全局配置
@@ -72,13 +73,14 @@ jetcache:
       type: redis
       expireAfterWriteInMillis: 43200000
       keyConvertor: fastjson
+      # 序列化器的全局配置。仅remote类型的缓存需要指定，可选java和kryo
       valueEncoder: java
       valueDecoder: java
       poolConfig:
         minIdle: 5
         maxIdle: 20
         maxTotal: 50
-      host: ${REDIS_SERVER:49.233.168.132}
+      host: ${REDIS_SERVER:localhost}
       port: ${REDIS_PORT:6379}
     # 长时远程緩存，主要用于要求时效要求一般的集中式缓存
     longTime:
@@ -91,7 +93,7 @@ jetcache:
         minIdle: 5
         maxIdle: 20
         maxTotal: 50
-      host: ${REDIS_SERVER:49.233.168.132}
+      host: ${REDIS_SERVER:localhost}
       port: ${REDIS_PROT:6379}
     # 短時远程緩存，主要用于要求时效较高的集中式缓存
     shortTime:
@@ -104,7 +106,7 @@ jetcache:
         minIdle: 5
         maxIdle: 20
         maxTotal: 50
-      host: ${REDIS_SERVER:49.233.168.132}
+      host: ${REDIS_SERVER:localhost}
       port: ${REDIS_PORT:6379}
 
 

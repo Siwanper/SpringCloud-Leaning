@@ -7,7 +7,7 @@ spring:
     password: ${RABBIT_MQ_PASSWORD:guest}
 
   redis:
-    host: ${REDIS_SERVER:49.233.168.132}
+    host: ${REDIS_SERVER:localhost}
     port: ${REDIS_PROT:6379}
     lettuce:
       pool:
@@ -31,74 +31,26 @@ spring:
       max-request-size: 2MB
 
 jetcache:
-  #统计间隔，0表示不统计
   statIntervalMinutes: 15
-  #areaName加在cacheName中，areaName也出现在key前缀中
   areaInCacheName: false
-  #指定的包名前缀被截掉
   hidePackages: com.siwanper.gateway
-  #本地缓存
   local:
-    #area
-    # 默认2小时本地缓存
+    # 默认永久本地缓存
     default:
       type: caffeine
       keyConvertor: fastjson
-      #以毫秒为单位指定超时时间的全局配置
-      expireAfterWriteInMillis: 3600000
-      #多长时间没有访问，就让缓存失效
-      expireAfterAccessInMillis: 1800000
-    # 長時本地緩存，主要用于要求时效一般
-    longTime:
-      type: caffeine
-      keyConvertor: fastjson
-      expireAfterWriteInMillis: 300000
-      expireAfterAccessInMillis: 180000
-    # 短時本地緩存，主要用于要求时效较高的配置
-    shortTime:
-      type: caffeine
-      keyConvertor: fastjson
-      expireAfterWriteInMillis: 60000
-      expireAfterAccessInMillis: 40000
   remote:
-    # 默认2小时的远程缓存
+    # 默认永久的远程缓存
     default:
       type: redis
-      expireAfterWriteInMillis: 43200000
       keyConvertor: fastjson
-      valueEncoder: java
-      valueDecoder: java
+      valueEncoder: kryo
+      valueDecoder: kryo
       poolConfig:
         minIdle: 5
         maxIdle: 20
         maxTotal: 50
-      host: ${REDIS_SERVER:49.233.168.132}
-      port: ${REDIS_PORT:6379}
-    # 长时远程緩存，主要用于要求时效要求一般的集中式缓存
-    longTime:
-      type: redis
-      expireAfterWriteInMillis: 7200000
-      keyConvertor: fastjson
-      valueEncoder: java
-      valueDecoder: java
-      poolConfig:
-        minIdle: 5
-        maxIdle: 20
-        maxTotal: 50
-      host: ${REDIS_SERVER:49.233.168.132}
-      port: ${REDIS_PROT:6379}
-    # 短時远程緩存，主要用于要求时效较高的集中式缓存
-    shortTime:
-      type: redis
-      expireAfterWriteInMillis: 300000
-      keyConvertor: fastjson
-      valueEncoder: java
-      valueDecoder: java
-      poolConfig:
-        minIdle: 5
-        maxIdle: 20
-        maxTotal: 50
-      host: ${REDIS_SERVER:49.233.168.132}
+      host: ${REDIS_HOST:localhost}
       port: ${REDIS_PORT:6379}
 
 management:

@@ -9,7 +9,7 @@ spring:
     nacos:
       discovery:
         server-addr: ${REGISTER_HOST:localhost}:${REGISTER_PORT:8848}
-
+        ip: localhost
       config:
         server-addr: ${REGISTER_HOST:localhost}:${REGISTER_PORT:8848}
         file-extension: yaml

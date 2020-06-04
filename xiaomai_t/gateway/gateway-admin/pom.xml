@@ -4,12 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.siwanper</groupId>
-		<artifactId>webapp-parent</artifactId>
+		<artifactId>webapps</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../../webapps/webapp-parent/pom.xml</relativePath>
+		<relativePath>../../webapps/pom.xml</relativePath>
 	</parent>
 
-	<groupId>com.siwanper</groupId>
 	<artifactId>gateway-admin</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -25,7 +24,6 @@
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
-
 
 
 </project>

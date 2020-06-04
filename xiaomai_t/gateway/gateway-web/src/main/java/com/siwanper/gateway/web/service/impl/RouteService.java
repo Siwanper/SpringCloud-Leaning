@@ -14,6 +14,8 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.PostConstruct;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -46,14 +48,33 @@ public class RouteService implements IRouteService {
             return key.replace(GATEWAY_ROUTES, Strings.EMPTY);
         }).collect(Collectors.toSet());
         Map<String, RouteDefinition> routeDefinitionMap = gatewayRouteCache.getAll(keys);
+        routeDefinitionMap.values().forEach(routeDefinition -> {
+            try {
+                routeDefinition.setUri(new URI(routeDefinition.getUri().toASCIIString()));
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+                log.error("网关加载 RouteDefinition 异常:",e);
+            }
+        });
         log.info("gatewayRoutes:{}",routeDefinitionMap);
-
         routeDefinitions.putAll(routeDefinitionMap);
         log.info("共初始化路由信息:{}",routeDefinitions.size());
     }
 
     @Override
     public Collection<RouteDefinition> getRouteDefinitions() {
-        return null;
+        return routeDefinitions.values();
+    }
+
+    @Override
+    public void save(RouteDefinition routeDefinition) {
+        routeDefinitions.put(routeDefinition.getId(),routeDefinition);
+        log.info("新增1条路由：{}, 共有路由：{}", routeDefinition.getId(), routeDefinitions.size());
+    }
+
+    @Override
+    public void delete(String routeId) {
+        routeDefinitions.remove(routeId);
+        log.info("删除1条路由：{}, 共有路由：{}", routeId, routeDefinitions.size());
     }
 }

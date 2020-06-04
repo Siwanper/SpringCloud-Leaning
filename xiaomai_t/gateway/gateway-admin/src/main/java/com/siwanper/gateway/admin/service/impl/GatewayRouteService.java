@@ -7,13 +7,16 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.siwanper.gateway.admin.config.BusConfig;
 import com.siwanper.gateway.admin.dao.GatewayRouteMapper;
 import com.siwanper.gateway.admin.entity.param.GatewayRouteQueryParam;
 import com.siwanper.gateway.admin.entity.po.GatewayRoute;
 import com.siwanper.gateway.admin.entity.vo.GatewayRouteVo;
+import com.siwanper.gateway.admin.events.EventSender;
 import com.siwanper.gateway.admin.service.IGatewayRouteService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.FilterDefinition;
 import org.springframework.cloud.gateway.handler.predicate.PredicateDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinition;
@@ -38,12 +41,17 @@ public class GatewayRouteService extends ServiceImpl<GatewayRouteMapper, Gateway
 
     private static final String GATEWAY_ROUTES = "gateway_routes::";
 
+    @Autowired
+    private EventSender eventSender;
+
     @CreateCache(name = GATEWAY_ROUTES, cacheType = CacheType.REMOTE)
     private Cache<String, RouteDefinition> gatewayRouteCache;
 
     @Override
     public boolean add(GatewayRoute gatewayRoute) {
-        gatewayRouteCache.put(gatewayRoute.getRouteId(),gatewayRouteToRouteDefinition(gatewayRoute));
+        RouteDefinition routeDefinition = gatewayRouteToRouteDefinition(gatewayRoute);
+        gatewayRouteCache.put(gatewayRoute.getRouteId(),routeDefinition);
+        eventSender.send(BusConfig.ROUTING_KEY, routeDefinition);
         return this.save(gatewayRoute);
     }
 
@@ -51,12 +59,15 @@ public class GatewayRouteService extends ServiceImpl<GatewayRouteMapper, Gateway
     public boolean delete(String id) {
         GatewayRoute gatewayRoute = this.getById(id);
         gatewayRouteCache.remove(gatewayRoute.getRouteId());
+        eventSender.send(BusConfig.ROUTING_KEY_DELETE, gatewayRoute.getRouteId());
         return this.removeById(id);
     }
 
     @Override
     public boolean update(GatewayRoute gatewayRoute) {
-        gatewayRouteCache.put(gatewayRoute.getRouteId(),gatewayRouteToRouteDefinition(gatewayRoute));
+        RouteDefinition routeDefinition = gatewayRouteToRouteDefinition(gatewayRoute);
+        gatewayRouteCache.put(gatewayRoute.getRouteId(),routeDefinition);
+        eventSender.send(BusConfig.ROUTING_KEY, routeDefinition);
         return this.updateById(gatewayRoute);
     }
 
