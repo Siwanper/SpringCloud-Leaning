@@ -20,7 +20,7 @@ public class BasePo implements Serializable {
 
     public static final String DEFAULT_USERNAME = "system";
     //ID_WORKER_STR  字符串全局唯一ID
-    @TableId(type = IdType.ID_WORKER_STR)
+    @TableId(type = IdType.AUTO)
     private String id;
     @TableField(fill = FieldFill.INSERT)
     private String createdBy;
