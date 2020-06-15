@@ -1,0 +1,79 @@
+
+[[_definitions]]
+== Definitions
+
+[[_productform]]
+=== ProductForm
+
+[options="header", cols=".^3a,.^4a"]
+|===
+|Name|Schema
+|**description** +
+__optional__|string
+|**name** +
+__optional__|string
+|**username** +
+__optional__|string
+|===
+
+
+[[_productqueryform]]
+=== ProductQueryForm
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|Name|Description|Schema
+|**createdEndTime** +
+__optional__|查询的结束时间|string (date-time)
+|**createdStartTime** +
+__optional__|查询的开始时间|string (date-time)
+|**name** +
+__optional__||string
+|**page** +
+__optional__||integer (int64)
+|**size** +
+__optional__||integer (int64)
+|**username** +
+__optional__||string
+|===
+
+
+[[_productupdateform]]
+=== ProductUpdateForm
+
+[options="header", cols=".^3a,.^4a"]
+|===
+|Name|Schema
+|**deleted** +
+__optional__|string
+|**description** +
+__optional__|string
+|**name** +
+__optional__|string
+|**username** +
+__optional__|string
+|===
+
+
+[[_2a83384de9d492e137321561ead9d617]]
+=== rest请求返回数据模型
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|Name|Description|Schema
+|**code** +
+__required__|请求结果code|string
+|**data** +
+__optional__|请求返回的数据|object
+|**fail** +
+__optional__||boolean
+|**mesg** +
+__optional__|请求结果描述|string
+|**success** +
+__optional__||boolean
+|**time** +
+__optional__|请求时间戳|string
+|===
+
+
+

@@ -1,0 +1,26 @@
+version: '3'
+services:
+  gateway-web:
+    image: cike/gateway-web:latest
+    container_name: sc-gateway-web
+    restart: always
+    networks:
+      - sc-net
+    ports:
+      - 80:80
+    env_file: .env
+    environment:
+      TZ: Asia/Shanghai
+
+  gateway-admin:
+    image: cike/gateway-admin:latest
+    container_name: sc-gateway-admin
+    restart: always
+    networks:
+      - sc-net
+    ports:
+      - 8445:8445
+    env_file: .env
+    environment:
+      TZ: Asia/Shanghai
+

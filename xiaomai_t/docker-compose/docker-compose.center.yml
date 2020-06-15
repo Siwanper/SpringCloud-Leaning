@@ -2,7 +2,7 @@ version: '3'
 services:
   bus-server:
     image: cike/bus-server:latest
-    container_name: sc_bus
+    container_name: sc-bus
     restart: always
     networks:
       - sc-net

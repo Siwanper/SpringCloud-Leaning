@@ -83,6 +83,49 @@ docker-compose -f docker-compose.yml -f docker-compose.nacos.yml up -d nacos
 #回到根目录
 cd -
 
+echo '==================5.构建镜像并启动网关(gateway)相关服务==============='
+#构建镜像:网关服务
+cd ./gateway/gateway-web
+mvn package && mvn docker:build
+
+#回到根目录
+cd -
+
+#构建镜像:网关管理服务
+cd ./gateway/gateway-admin
+mvn package && mvn docker:build
+
+#确认初始化网关服务的DB:./gateway/gateway-admin/src/main/db
+echo '你可以立即去部署网关服务的DB(脚本路径:./gateway/gateway-admin/src/main/db),然后回来继续...'
+read -r -p "确认网关服务的DB部署好了吗? [Y/n] " gwDbConfirm
+case $gwDbConfirm in
+    [yY][eE][sS]|[yY])
+		echo "Yes 继续执行"
+		;;
+    [nN][oO]|[nN])
+		echo "No 终止执行"
+		exit 1
+       	;;
+    *)
+		echo "Invalid input... 终止执行"
+		exit 1
+		;;
+esac
+
+#回到根目录
+cd -
+
+#去docker-compose目录
+cd docker-compose
+
+#启动网关服务
+docker-compose -f docker-compose.yml -f docker-compose.spring-gateway.yml up -d gateway-web
+
+#启动网关管理服务
+docker-compose -f docker-compose.yml -f docker-compose.spring-gateway.yml up -d gateway-admin
+
+#回到根目录
+cd -
 
 echo '==================6.构建镜像并启动组织(organization)相关服务=================='
 #构建镜像:组织服务

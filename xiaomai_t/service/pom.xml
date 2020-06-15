@@ -41,10 +41,10 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <!-- jetCache 相关 -->
-<!--        <dependency>-->
-<!--            <groupId>com.alicp.jetcache</groupId>-->
-<!--            <artifactId>jetcache-starter-redis</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.alicp.jetcache</groupId>
+            <artifactId>jetcache-starter-redis</artifactId>
+        </dependency>
 
     </dependencies>
 
