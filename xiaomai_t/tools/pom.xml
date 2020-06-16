@@ -4,28 +4,22 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.siwanper</groupId>
-        <artifactId>cloud</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <artifactId>cloud</artifactId>
     </parent>
 
-    <artifactId>service</artifactId>
+    <groupId>com.siwanper</groupId>
+    <artifactId>tools</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>service</name>
-    <description>Service Module</description>
-
-    <modules>
-        <module>product</module>
-    </modules>
+    <name>tools</name>
+    <description>tools</description>
 
     <dependencies>
 
-
     </dependencies>
 
-    <build>
 
-    </build>
 
 </project>

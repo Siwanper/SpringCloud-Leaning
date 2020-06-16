@@ -18,6 +18,8 @@
 		<module>sysadmin</module>
 		<module>webapps</module>
 		<module>gateway</module>
+		<module>service</module>
+
 	</modules>
 
 	<properties>
