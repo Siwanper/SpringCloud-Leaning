@@ -13,8 +13,6 @@ services:
       - .env
     environment:
       TZ: Asia/Shanghai
-    depends_on:
-      - authentication-server
 
   #认证服务
   authentication-server:
@@ -29,8 +27,7 @@ services:
         - .env
       environment:
         TZ: Asia/Shanghai
-      depends_on:
-        - organization
+
 
   #组织服务
   organization:

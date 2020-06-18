@@ -5,14 +5,13 @@ spring:
   application:
     name: bus-server
 # 多环境配置 dev prod
-  profiles:
-    active: prod
+#  profiles:
+#    active: prod
 
   cloud:
     nacos:
       discovery:
         server-addr: ${REGISTER_HOST:localhost}:${REGISTER_PORT:8848}
-
       config:
         server-addr: ${REGISTER_HOST:localhost}:${REGISTER_PORT:8848}
         file-extension: yaml

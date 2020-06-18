@@ -1,9 +1,9 @@
 server:
-  port: 8010
+  port: 7000
 
 spring:
   application:
-    name: organization
+    name: resttemplate
 
   cloud:
     nacos:
@@ -12,3 +12,4 @@ spring:
       config:
         server-addr: ${REGISTER_HOST:localhost}:${REGISTER_PORT:8848}
         file-extension: yaml
+
