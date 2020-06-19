@@ -5,11 +5,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.RequestEntity;
-import org.springframework.http.ResponseEntity;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -61,7 +61,21 @@ public class ResttemplateApplicationTests {
 
     @Test
     public void upload(){
+        String url = "http://localhost:7000/upload/resource";
 
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+
+        FileSystemResource resource = new FileSystemResource("/Users/chenjie/Desktop/WechatIMG2.png");
+        FileSystemResource resource1 = new FileSystemResource("/Users/chenjie/Desktop/Id.png");
+        MultiValueMap<String, Object> form = new LinkedMultiValueMap<>();
+        form.add("file", resource);
+        form.add("file", resource1);
+        form.add("param1", "value1");
+
+        HttpEntity<MultiValueMap<String, Object>> entity = new HttpEntity(form, headers);
+        String result = restTemplate.postForObject(url, entity, String.class);
+        System.out.printf("result : " + result);
     }
 
 }

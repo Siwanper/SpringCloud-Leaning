@@ -12,13 +12,13 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 public class ResttemplateApplication {
 
-    @Autowired
-    private RestTemplateBuilder builder;
-
-    @Bean
-    public RestTemplate restTemplate() {
-        return builder.build();
-    }
+//    @Autowired
+//    private RestTemplateBuilder builder;
+//
+//    @Bean
+//    public RestTemplate restTemplate() {
+//        return builder.build();
+//    }
     public static void main(String[] args) {
         SpringApplication.run(ResttemplateApplication.class, args);
     }
