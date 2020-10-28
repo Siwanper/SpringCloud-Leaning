@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="t4-web" />
+        <module name="t4-core" />
+        <module name="t4-api" />
+        <module name="t4-common" />
+        <module name="t4-service" />
+        <module name="t4-dao" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
