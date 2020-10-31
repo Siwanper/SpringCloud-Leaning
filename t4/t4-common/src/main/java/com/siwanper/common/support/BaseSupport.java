@@ -9,6 +9,17 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+/**
+ * 基础工具类
+ * 判断对象是否为空
+ * 对象转为字符串
+ * 获取UUID
+ * base64编码、解码
+ * md5加密
+ * 获取当前日期，时间戳和日期的相互转化
+ * 文件写入，读取
+ * 读取properties 资源配置文件
+ */
 public abstract class BaseSupport {
 
     /**

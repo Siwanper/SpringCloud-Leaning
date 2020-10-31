@@ -50,6 +50,20 @@
                 <value>classpath*:mybatis/user/SysUserMapper.xml</value>
             </list>
         </property>
+        <!-- 配置 mybatis 分页插件 -->
+        <property name="plugins">
+            <bean class="com.github.pagehelper.PageInterceptor">
+                <property name="properties">
+                    <value>
+                        helperDialect=mysql
+                        offsetAsPageNum=true
+                        rowBoundsWithCount=true
+                        pageSizeZero=true
+                        reasonable=false
+                    </value>
+                </property>
+            </bean>
+        </property>
     </bean>
 
     <!-- 配置 Mapper 接口所在包名，Spring 会自动查找其下的 Mapper -->

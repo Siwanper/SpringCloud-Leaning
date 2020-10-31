@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="t4-web" />
+        <module name="t4-plugins" />
         <module name="t4-core" />
         <module name="t4-api" />
         <module name="t4-common" />

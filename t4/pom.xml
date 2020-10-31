@@ -14,6 +14,7 @@
     <modules>
         <module>t4-web</module>
         <module>t4-dao</module>
+        <module>t4-plugins</module>
         <module>t4-api</module>
         <module>t4-service</module>
         <module>t4-core</module>
@@ -26,7 +27,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
 
         <spring.version>5.1.6.RELEASE</spring.version>
-
+        <jackson.version>2.9.6</jackson.version>
     </properties>
 
 </project>
