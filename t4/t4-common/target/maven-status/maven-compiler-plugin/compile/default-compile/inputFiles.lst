@@ -1,1 +1,5 @@
-/Users/chenjie/Documents/Github/SpringCloud-Leaning/t4/t4-common/src/main/java/com/siwanper/common/support/BaseSupport.java
+/Users/chenjie/Documents/SpringCloud-Leaning/t4/t4-common/src/main/java/com/siwanper/common/support/BaseSupport.java
+/Users/chenjie/Documents/SpringCloud-Leaning/t4/t4-common/src/main/java/com/siwanper/common/service/impl/BaseServiceImpl.java
+/Users/chenjie/Documents/SpringCloud-Leaning/t4/t4-common/src/main/java/com/siwanper/common/model/MsgModel.java
+/Users/chenjie/Documents/SpringCloud-Leaning/t4/t4-common/src/main/java/com/siwanper/common/service/BaseService.java
+/Users/chenjie/Documents/SpringCloud-Leaning/t4/t4-common/src/main/java/com/siwanper/common/model/PageModel.java

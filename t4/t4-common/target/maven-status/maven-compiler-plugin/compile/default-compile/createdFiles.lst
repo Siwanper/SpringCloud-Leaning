@@ -1,0 +1,5 @@
+com/siwanper/common/support/BaseSupport.class
+com/siwanper/common/model/PageModel.class
+com/siwanper/common/service/impl/BaseServiceImpl.class
+com/siwanper/common/model/MsgModel.class
+com/siwanper/common/service/BaseService.class

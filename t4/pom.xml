@@ -28,6 +28,8 @@
 
         <spring.version>5.1.6.RELEASE</spring.version>
         <jackson.version>2.9.6</jackson.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <logback.version>1.2.3</logback.version>
     </properties>
 
 </project>

@@ -1,0 +1,8 @@
+com/siwanper/dao/model/user/SysUserExample.class
+com/siwanper/dao/model/user/SysUserExample$Criterion.class
+com/siwanper/dao/model/user/SysUserExample$GeneratedCriteria.class
+com/siwanper/dao/model/user/SysUserKey.class
+com/siwanper/dao/model/user/SysUserExample$Criteria.class
+com/siwanper/dao/model/user/SysUser.class
+com/siwanper/dao/mapper/user/SysUserMapper.class
+com/siwanper/dao/model/login/LoginModel.class

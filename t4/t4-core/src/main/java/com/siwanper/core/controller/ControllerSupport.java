@@ -3,11 +3,12 @@ package com.siwanper.core.controller;
 import com.siwanper.api.persistence.DelegateService;
 import com.siwanper.common.model.MsgModel;
 import com.siwanper.common.model.PageModel;
+import com.siwanper.common.support.BaseSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public abstract class ControllerSupport {
+public abstract class ControllerSupport extends BaseSupport {
 
     @Autowired
     private DelegateService delegateService;

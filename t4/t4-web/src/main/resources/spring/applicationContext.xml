@@ -9,5 +9,5 @@
     <context:property-placeholder location="classpath:properties/datasource.properties" />
 
     <import resource="classpath:MATE-INF/spring/spring-mybatis.xml"/>
-
+    <import resource="classpath:spring/config/spring-*.xml"/>
 </beans>

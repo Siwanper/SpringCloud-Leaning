@@ -1,2 +1,4 @@
-/Users/chenjie/Documents/Github/SpringCloud-Leaning/t4/t4-web/src/main/java/com/siwanper/web/controller/user/UserController.java
-/Users/chenjie/Documents/Github/SpringCloud-Leaning/t4/t4-web/src/main/java/com/siwanper/web/controller/demo/HelloController.java
+/Users/chenjie/Documents/SpringCloud-Leaning/t4/t4-web/src/main/java/com/siwanper/web/controller/demo/HelloController.java
+/Users/chenjie/Documents/SpringCloud-Leaning/t4/t4-web/src/main/java/com/siwanper/web/controller/user/UserController.java
+/Users/chenjie/Documents/SpringCloud-Leaning/t4/t4-web/src/main/java/com/siwanper/web/controller/Index/IndexController.java
+/Users/chenjie/Documents/SpringCloud-Leaning/t4/t4-web/src/main/java/com/siwanper/web/controller/login/LoginController.java

@@ -1,2 +1,5 @@
-/Users/chenjie/Documents/Github/SpringCloud-Leaning/t4/t4-dao/src/main/java/com/siwanper/dao/model/user/SysUser.java
-/Users/chenjie/Documents/Github/SpringCloud-Leaning/t4/t4-dao/src/main/java/com/siwanper/dao/mapper/user/SysUserMapper.java
+/Users/chenjie/Documents/SpringCloud-Leaning/t4/t4-dao/src/main/java/com/siwanper/dao/mapper/user/SysUserMapper.java
+/Users/chenjie/Documents/SpringCloud-Leaning/t4/t4-dao/src/main/java/com/siwanper/dao/model/user/SysUserExample.java
+/Users/chenjie/Documents/SpringCloud-Leaning/t4/t4-dao/src/main/java/com/siwanper/dao/model/user/SysUserKey.java
+/Users/chenjie/Documents/SpringCloud-Leaning/t4/t4-dao/src/main/java/com/siwanper/dao/model/user/SysUser.java
+/Users/chenjie/Documents/SpringCloud-Leaning/t4/t4-dao/src/main/java/com/siwanper/dao/model/login/LoginModel.java
