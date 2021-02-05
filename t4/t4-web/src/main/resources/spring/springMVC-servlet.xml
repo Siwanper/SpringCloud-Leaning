@@ -62,4 +62,6 @@
         </property>
     </bean>
 
+    <mvc:resources location="/resource/" mapping="/resource/**"/>
+
 </beans>

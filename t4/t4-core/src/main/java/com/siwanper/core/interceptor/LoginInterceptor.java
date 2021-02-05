@@ -19,19 +19,19 @@ public class LoginInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String uri = request.getRequestURI();
-        String contextPath = request.getContextPath();
-
-        HttpSession session = request.getSession();
-
-        System.out.println("uri == " + uri);
-        System.out.println("contextPath == " + contextPath);
-
-        Object user = session.getAttribute("user");
-        if (null == user) {
-            response.sendRedirect(contextPath+"/login");
-            return false;
-        }
+//        String uri = request.getRequestURI();
+//        String contextPath = request.getContextPath();
+//
+//        HttpSession session = request.getSession();
+//
+//        System.out.println("uri == " + uri);
+//        System.out.println("contextPath == " + contextPath);
+//
+//        Object user = session.getAttribute("user");
+//        if (null == user) {
+//            response.sendRedirect(contextPath+"/home/");
+//            return false;
+//        }
 
         return true;
     }
